@@ -2,12 +2,7 @@ import React from 'react';
 
 // material-ui elements
 const UI = require('material-ui');
-const { Card, CardHeader, AppBar, LeftNav, FloatingActionButton, IconButton, IconMenu, Divider, MenuItem, ToolbarTitle, SelectField } = UI;
-
-import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
-
-// custom icons
-// import Icon from 'react-svg-use';
+const { Card, CardHeader, AppBar, LeftNav, MenuItem } = UI;
 
 function handleTouchTap() {
   FlowRouter.go('/');
@@ -42,19 +37,19 @@ export default class extends React.Component {
     this.handleLeftButton = this.handleLeftButton.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.leftNav = this.leftNav.bind(this);
-  };
+  }
 
   handleLeftButton() {
     return this.setState({open: !this.state.open});
-  };
+  }
 
   handleClose() {
     return this.setState({open: false});
-  };
+  }
 
   leftNav() {
     return 'page ' + ((this.state.open) ? 'opened' : '');
-  };
+  }
 
   render() {
     const {brand, rightContent, leftContent} = this.props;
@@ -66,7 +61,11 @@ export default class extends React.Component {
           iconElementLeft={leftContent ? leftContent() : null }
           onLeftIconButtonTouchTap={this.handleLeftButton}
           onTitleTouchTap={handleTouchTap}
-          title={<div style={styles.logoWrapper}><svg style={styles.logoSvg}><use xlinkHref='#logo' /></svg><span className="logotitle">{this.props.brand()}</span></div>}
+          title={
+            <div style={styles.logoWrapper}>
+              <svg style={styles.logoSvg}><use xlinkHref='#logo' /></svg>
+              <span className="logotitle">{brand()}</span>
+            </div>}
           iconElementRight={
             <div>
               {rightContent ? rightContent() : null }
@@ -80,11 +79,20 @@ export default class extends React.Component {
               subtitle="Subtitle"
             />
           </Card>
-            <MenuItem linkButton href="/colors" onTouchTap={this.handleClose}>Colors</MenuItem>
-            <MenuItem linkButton href="/preschools" onTouchTap={this.handleClose}><T label="preschools" /></MenuItem>
-            <MenuItem linkButton href="/users" onTouchTap={this.handleClose}><T label="users" /></MenuItem>
+            <MenuItem
+              linkButton
+              href="/colors"
+              onTouchTap={this.handleClose}>Colors</MenuItem>
+            <MenuItem
+              linkButton
+              href="/preschools"
+              onTouchTap={this.handleClose}><T label="preschools" /></MenuItem>
+            <MenuItem
+              linkButton
+              href="/users"
+              onTouchTap={this.handleClose}><T label="users" /></MenuItem>
           </LeftNav>
       </div>
     );
   }
-};
+}

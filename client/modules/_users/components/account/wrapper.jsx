@@ -16,12 +16,12 @@ export default class extends React.Component {
     lang = TAPi18n.getLanguage();
     this.state = {value: lang};
     this.handleChange = this.handleChange.bind(this);
-  };
+  }
 
   handleChange(event, index, value) {
     TAPi18n.setLanguage({value}.value);
     return this.setState({value});
-  };
+  }
 
   render() {
     return (

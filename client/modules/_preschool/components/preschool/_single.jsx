@@ -7,14 +7,14 @@ const { Card, CardActions, CardHeader, FlatButton, CardText } = UI;
 export default class extends React.Component {
 
   deleteRecord() {
-    var ask = window.confirm("Are you sure you want to delete this?");
+    var ask = window.confirm('Are you sure you want to delete this?');
     if (ask) {
       this.props.deleteAction(this.props._id);
     }
   }
 
   render() {
-    const {_id, record, createdAt} = this.props;
+    const {_id, record} = this.props;
     return (
       <div>
         {record.saving ? <p>Saving...</p> : null}
@@ -35,6 +35,9 @@ export default class extends React.Component {
             </p>
             <p>
               Capacity: {record.capacity}
+            </p>
+            <p>
+              Created At: {record.createdAt.toString()}
             </p>
           </CardText>
           <CardActions>

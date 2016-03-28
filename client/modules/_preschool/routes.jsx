@@ -36,7 +36,10 @@ export default function (injectDeps, {FlowRouter}) {
   compRoutes.route('/add', {
     action() {
       mount(LayoutDefaultCtx, {
-        leftIcon: () => (<div><a href="/preschools"><IconButton><NavigationClose color='#ffffff' /></IconButton></a></div>),
+        leftIcon: () => (<div>
+          <a href="/preschools">
+            <IconButton><NavigationClose color='#ffffff' /></IconButton>
+          </a></div>),
         content: () => (<AddView />)
       });
     }
@@ -53,7 +56,10 @@ export default function (injectDeps, {FlowRouter}) {
   compRoutes.route('/:_id/edit', {
     action({_id}) {
       mount(LayoutDefaultCtx, {
-        leftIcon: () => (<div><a href="/preschools"><IconButton><NavigationClose color='#ffffff' /></IconButton></a></div>),
+        leftIcon: () => (<div>
+          <a href="/preschools">
+            <IconButton><NavigationClose color='#ffffff' /></IconButton>
+          </a></div>),
         content: () => (<EditView _id={_id}/>)
       });
     }

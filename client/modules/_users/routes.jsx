@@ -1,10 +1,7 @@
 import React from 'react';
 import {mount} from 'react-mounter';
 
-import {
-  LayoutDefault,
-  Simple
-} from '/client/configs/theme.jsx';
+import {LayoutDefault} from '/client/configs/theme.jsx';
 
 
 import Login from './components/login/wrapper.jsx';
@@ -160,4 +157,4 @@ export default function (injectDeps, {FlowRouter}) {
     }
   });
 
-};
+}

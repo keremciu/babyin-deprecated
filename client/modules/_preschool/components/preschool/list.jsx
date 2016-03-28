@@ -22,7 +22,11 @@ export default class extends React.Component {
   render() {
     return (
       <div className="collection-grid">
-        <FloatingActionButton style={styles.floatbtn} linkButton href="preschools/add"><ContentAdd /></FloatingActionButton>
+        <FloatingActionButton
+          style={styles.floatbtn}
+          linkButton href="preschools/add">
+            <ContentAdd />
+        </FloatingActionButton>
         <Container />
       </div>
     );

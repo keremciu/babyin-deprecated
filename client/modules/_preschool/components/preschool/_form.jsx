@@ -1,39 +1,44 @@
 import React from 'react';
-import { Form } from 'formsy-react'
+import { Form } from 'formsy-react';
 
 const FMUI = require('formsy-material-ui');
-const { FormsyCheckbox, FormsyDate, FormsyRadio, FormsyRadioGroup, FormsySelect, FormsyText, FormsyTime, FormsyToggle } = FMUI;
+const { FormsyText } = FMUI;
 const UI = require('material-ui');
-const { RaisedButton, Divider } = UI;
+const { RaisedButton } = UI;
 
 export default React.createClass({
 
-  getInitialState: function () {
+  getInitialState() {
     return {
       canSubmit: false
     };
   },
 
-  errorMessages: {
-    wordsError: "Please only use letters",
-    numError: "Please only use numbers",
-    emailError: "Please write an e-mail address",
-    urlError: "Please write an url address like http://example.com",
+  styles: {
+    paperStyle: {
+      padding: 20
+    },
   },
 
-  enableButton: function () {
+  errorMessages: {
+    numError: 'Please only use numbers',
+    emailError: 'Please write an e-mail address',
+    urlError: 'Please write an url address like http://example.com',
+  },
+
+  enableButton() {
     this.setState({
       canSubmit: true
     });
   },
 
-  disableButton: function () {
+  disableButton() {
     this.setState({
       canSubmit: false
     });
   },
 
-  submitForm: function (model) {
+  submitForm(model) {
     // Submit your validated form
     // console.log("Model: ", model)
 
@@ -46,24 +51,18 @@ export default React.createClass({
     }
   },
 
-  styles: {
-    paperStyle: {
-      padding: 20
-    },
-  },
-
-  getData: function (item) {
-    // const {error, record} = this.props;gfh
+  getData(item) {
+    // if is it not new record get data
     return this.props._id ? this.props.record[item] : '';
   },
 
   render() {
 
-    const {error, record} = this.props;
+    const {record} = this.props;
     const title = this.props._id ? 'Edit: ' + record.name : 'Add new';
     const buttonLabel = 'Save';
     let styles = this.styles;
-    let { wordsError, numError, emailError, urlError } = this.errorMessages;
+    let { numError, emailError, urlError } = this.errorMessages;
 
     return (
         <div style={styles.paperStyle}>
@@ -129,7 +128,11 @@ export default React.createClass({
                 validations="isNumeric,minLength:1,maxLength:20"
                 validationError={numError}
               />
-              <RaisedButton label={buttonLabel} type="submit" disabled={!this.state.canSubmit} primary={true} />
+              <RaisedButton
+                label={buttonLabel}
+                type="submit"
+                disabled={!this.state.canSubmit}
+                primary={true} />
           </Formsy.Form>
         </div>
     );

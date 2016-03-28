@@ -2,7 +2,8 @@ import React from 'react';
 
 // material ui elements
 const UI = require('material-ui');
-const { Table, TableHeaderColumn, TableRow, TableHeader, TableRowColumn, TableBody, TableFooter, FloatingActionButton } = UI;
+const { Table, TableHeaderColumn, TableRow, TableHeader, TableRowColumn,
+  TableBody, FloatingActionButton } = UI;
 
 // material ui svg icons
 import EditIcon from 'material-ui/lib/svg-icons/image/edit';
@@ -46,6 +47,12 @@ export default ({collection}) => (
           ))}
         </TableBody>
       </Table>
-      <FloatingActionButton secondary={true} style={styles.floatbtn} linkButton href="preschools/add"><ContentAdd /></FloatingActionButton>
+      <FloatingActionButton
+        secondary={true}
+        style={styles.floatbtn}
+        linkButton
+        href="preschools/add">
+        <ContentAdd />
+      </FloatingActionButton>
   </div>
 );

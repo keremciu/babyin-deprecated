@@ -32,7 +32,7 @@ export default function () {
       check(_id, String);
 
       let record = _classroom.findOne(_id);
-      const allowedFields = [ 'name','description', 'count', 'schoolId'];
+      const allowedFields = [ 'name','description', 'count', 'schoolId' ];
       allowedFields.forEach(key => record.set(key,data[key]) );
       record.save(allowedFields);
 

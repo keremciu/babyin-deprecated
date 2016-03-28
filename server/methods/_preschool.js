@@ -36,7 +36,7 @@ export default function () {
       check(_id, String);
 
       let record = _preschool.findOne(_id);
-      const allowedFields = [ 'name','phone', 'email', 'website', 'address', 'capacity'];
+      const allowedFields = [ 'name','phone', 'email', 'website', 'address', 'capacity' ];
       allowedFields.forEach(key => record.set(key,data[key]) );
       record.save(allowedFields);
 

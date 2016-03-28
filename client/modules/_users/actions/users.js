@@ -24,7 +24,7 @@ export default {
         return LocalState.set('_users.SAVE_ERROR', err.message);
       }
 
-      TAPi18n.setLanguage(data.language)
+      TAPi18n.setLanguage(data.language);
       FlowRouter.go('/users/' + _id);
     });
   },

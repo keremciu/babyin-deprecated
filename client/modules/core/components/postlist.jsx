@@ -2,7 +2,8 @@ import React from 'react';
 
 // material ui elements
 const UI = require('material-ui');
-const { Table, TableHeaderColumn, TableRow, TableHeader, TableRowColumn, TableBody, TableFooter, FloatingActionButton } = UI;
+const { Table, TableHeaderColumn, TableRow, TableHeader,
+  TableRowColumn, TableBody, FloatingActionButton } = UI;
 
 // material ui svg icons
 import EditIcon from 'material-ui/lib/svg-icons/image/edit';
@@ -34,7 +35,9 @@ const PostList = ({posts}) => (
           ))}
         </TableBody>
       </Table>
-      <FloatingActionButton style={styles.floatbtn} linkButton href="new-post"><ContentAdd /></FloatingActionButton>
+      <FloatingActionButton style={styles.floatbtn} linkButton href="new-post">
+        <ContentAdd />
+      </FloatingActionButton>
   </div>
 );
 

@@ -30,7 +30,11 @@ export default class extends React.Component {
       <div>
         <IconMenu
           style={styles.iconmenu}
-          iconButtonElement={<div style={styles.userarea}>{email} <IconButton><MoreVertIcon color='#ffffff' /></IconButton></div>}
+          iconButtonElement={
+            <div style={styles.userarea}>
+              {email}
+              <IconButton><MoreVertIcon color='#ffffff' /></IconButton>
+            </div>}
           targetOrigin={{horizontal: 'right', vertical: 'top'}}
           anchorOrigin={{horizontal: 'right', vertical: 'top'}}
         >
@@ -46,8 +50,18 @@ export default class extends React.Component {
   getGuest() {
     return (
       <div>
-        <RaisedButton href="/register" label="Register" primary={true} style={styles.raisedbtn} linkButton />
-        <RaisedButton href="/login" label="Login" secondary={true} style={styles.raisedbtn} linkButton />
+        <RaisedButton
+          href="/register"
+          label="Register"
+          primary={true}
+          style={styles.raisedbtn}
+          linkButton />
+        <RaisedButton
+          href="/login"
+          label="Login"
+          secondary={true}
+          style={styles.raisedbtn}
+          linkButton />
       </div>
     );
   }

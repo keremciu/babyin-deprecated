@@ -6,7 +6,6 @@ export default {
     const _id = Meteor.uuid();
     Meteor.call('_preschool.add', data, _id, (err) => {
       if (err) {
-        console.log(err);
         return LocalState.set('_preschool.SAVE_ERROR', err.message);
       }
     });
@@ -21,7 +20,6 @@ export default {
 
     Meteor.call('_preschool.update', data, _id, (err) => {
       if (err) {
-        console.log(err);
         return LocalState.set('_preschool.SAVE_ERROR', err.message);
       }
     });
@@ -38,7 +36,6 @@ export default {
         return LocalState.set('_preschool.DELETE_ERROR', err.message);
       }
     });
-    
     FlowRouter.go(`/preschools/`);
   },
 

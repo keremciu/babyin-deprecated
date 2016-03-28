@@ -27,7 +27,8 @@ export default class extends React.Component {
         <p><strong>role:</strong> {roles}</p>
         <p><strong>language:</strong> {language}</p>
 
-        <a href={'/users/' + _id + '/edit'}>edit</a> | <a href="#" onClick={this.deleteRecord.bind(this)}>delete</a>
+        <a href={'/users/' + _id + '/edit'}>edit</a> |
+        <a href="#" onClick={this.deleteRecord.bind(this)}>delete</a>
       </div>
     );
   }

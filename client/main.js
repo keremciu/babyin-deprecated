@@ -7,25 +7,27 @@ import coreModule from './modules/core';
 import commentsModule from './modules/comments';
 import _usersModule from './modules/_users';
 import _colorsModule from './modules/_colors';
-import _preschoolModule from "./modules/_preschool";
+import _preschoolModule from './modules/_preschool';
 
 // get logged user language information
-const loggedIn = Meteor.userId() || false;
+// const loggedIn = Meteor.userId() || false;
 const user = Meteor.users.findOne(Meteor.userId());
 const language = _.get(user, 'profile.language', null);
 
-if (language == null) {
-  // browser language
-  function getLang() {
-      if (navigator.languages != undefined)  {
-          return navigator.languages[0];
-      }
-      return navigator.language || navigator.browserLanguage;
+// browser language
+function getLang() {
+  if (typeof navigator.languages !== 'undefined') {
+    return navigator.languages[0];
   }
-  TAPi18n.setLanguage(getLang())
+
+  return navigator.language || navigator.browserLanguage;
+}
+
+if (language === null) {
+  TAPi18n.setLanguage(getLang());
 } else {
   // set the language of user
-  TAPi18n.setLanguage(language)
+  TAPi18n.setLanguage(language);
 }
 
 // init context

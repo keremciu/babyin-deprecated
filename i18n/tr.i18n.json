@@ -1,0 +1,26 @@
+{
+
+	/*Config*/
+	"name": "Babyin",
+	"title": "Anaokullari",
+	"subtitle": "Create beautiful and functioning Meteor apps really quick",
+
+	/*Header*/
+	"account": "Hesap",
+	"signout": "Çıkış Yap",
+
+	/* CollectionView */
+	"actions": "Eylemler",
+
+	/* PostList */
+	"postname": "name",
+
+	/* PreschoolList */
+	"preschools": "Anaokulları",
+	"schoolname": "Adı",
+	"capacity": "Kapasite",
+
+	/* UserList */
+	"users": "Kullanıcılar"
+
+}

@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Gotham Rounded', 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+header {
+  border-bottom: 1px solid #EAEAEA;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+.page.opened .appbar {
+    -moz-transform: translate(256px,0);
+    -ms-transform: translate(256px,0);
+    -webkit-transform: translate(256px,0);
+    transform: translate(256px,0);
+    width: 95%;
+    width: calc(100% - 256px) !important;
+}
+
+footer {
+  margin-top: 50px;
+  border-top: 1px solid #EAEAEA;
+  padding-top: 10px;
+  font-size: 12px;
+}
+
+.postlist li {
+  margin: 8px 0;
+}
+
+.postlist li a {
+  text-decoration: none;
+}
+
+.new-post input,
+.new-post textarea {
+  width: 350px;
+  outline: 0;
+  margin-bottom: 5px;
+  border: 1px solid #ddd;
+  font-size: 13px;
+  padding: 4px 6px;
+}
+
+.new-post textarea {
+  height: 200px;
+}
+
+footer {
+  margin-top: 20px;
+  border-top: 1px solid #eee;
+  padding-top: 5px;
+}
+
+.table--actions a {
+  padding-right: 15px;
+}
+
+@media screen and (max-width: 860px) {
+  .logotitle {
+    display: none;
+  }
+}

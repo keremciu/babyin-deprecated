@@ -1,0 +1,27 @@
+{
+
+	/*Config*/
+	"name": "Babyin",
+	"title": "Preschools.",
+	"subtitle": "Create beautiful and functioning Meteor apps really quick",
+
+	/*Home*/
+	"account": "Account",
+	"signout": "Sign Out",
+
+	/* CollectionView */
+	"actions": "Actions",
+
+	/* PostList */
+	"postname": "name",
+
+	/* PreschoolList */
+	"preschools": "Preschools",
+	"schoolname": "Name",
+	"capacity": "Capacity",
+
+
+	/* UserList */
+	"users": "Users"
+
+}

@@ -2,6 +2,19 @@ import {Meteor} from 'meteor/meteor';
 import {check} from 'meteor/check';
 // import _ from 'lodash';
 
+Accounts.onCreateUser(function (options, user) {
+  // Use provided profile in options, or create an empty profile object
+  user.profile = options.profile || {};
+
+  // Assigns the first and last names to the newly created user object
+  user.profile.firstName = options.firstName;
+  user.profile.lastName = options.lastName;
+  user.profile.language = options.language;
+
+  // Returns the user object
+  return user;
+});
+
 export default function () {
   Meteor.methods({
 
@@ -17,15 +30,12 @@ export default function () {
 
       data.password = 'test1234';
 
-      // console.log('_users.add data', data);
-
-      // XXX: Do some user authorization
-
       const _idNew = Accounts.createUser({
         email: data.email,
         password: data.password,
         firstName: data.firstName,
-        lastName: data.lastName
+        lastName: data.lastName,
+        language: data.language
       });
 
       // console.log('new user created with _id_new', _id_new);
@@ -44,11 +54,6 @@ export default function () {
         language: String
       });
       check(_id, String);
-
-      //  console.log('_users.update _id', _id);
-      //  console.log('_users.update data', data);
-
-      // XXX: Do some user authorization
 
       let record = Meteor.users.findOne(_id);
       // const allowedFields = ['profile.firstName'];

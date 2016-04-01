@@ -23,9 +23,11 @@
 
 	/*ListView*/
 	"actions": "Eylemler",
+	"edit": "Düzenle",
+	"delete": "Sil",
 
 	/*FormHeads*/
-	"edit": "Düzenle: __name__",
+	"editwithname": "Düzenle: __name__",
 	"add": "Yeni Ekle",
 
 	/*FormErrors*/

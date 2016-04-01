@@ -2,7 +2,11 @@ import React from 'react';
 
 // material ui elements
 const UI = require('material-ui');
-const { Card, CardActions, CardHeader, FlatButton, CardText } = UI;
+const { Divider, Card, CardActions, CardTitle, FlatButton, CardText } = UI;
+
+// materail svg icons
+import EditIcon from 'material-ui/lib/svg-icons/image/edit';
+import DeleteIcon from 'material-ui/lib/svg-icons/action/delete';
 
 export default class extends React.Component {
 
@@ -14,39 +18,52 @@ export default class extends React.Component {
   }
 
   render() {
-    const {_id, record} = this.props;
+    const {
+      _id,
+      name,
+      email,
+      phone,
+      website,
+      address,
+      capacity,
+      saving,
+      createdAt
+    } = this.props;
     return (
       <div>
-        {record.saving ? <p>Saving...</p> : null}
+        {saving ? <p>Saving...</p> : null}
         <Card>
-          <CardHeader
-            title={record.name}
-            subtitle={record.email}
-          />
+          <CardTitle title={name} subtitle={email} />
           <CardText>
             <p>
-              <T label="form_phone" />: {record.phone}
+              <strong><T label="form_phone" /></strong> {phone}
             </p>
+            <Divider />
             <p>
-              <T label="form_website" />: {record.website}
+              <strong><T label="form_website" /></strong> {website}
             </p>
+            <Divider />
             <p>
-              <T label="form_address" />: {record.address}
+              <strong><T label="form_address" /></strong> {address}
             </p>
+            <Divider />
             <p>
-              <T label="capacity" />: {record.capacity}
+              <strong><T label="capacity" /></strong> {capacity}
             </p>
+            <Divider />
             <p>
-              <T label="created_at" />: {record.createdAt.toString()}
+              <strong><T label="created_at" /></strong> {createdAt.toDateString()}
             </p>
           </CardText>
           <CardActions>
             <FlatButton
-              label="Edit"
+              label={<T label="edit" />}
               linkButton
+              icon={<EditIcon />}
               href={'/preschools/' + _id + '/edit'} />
             <FlatButton
-              label="Delete"
+              label={<T label="delete" />}
+              icon={<DeleteIcon />}
               onClick={this.deleteRecord.bind(this)} />
           </CardActions>
         </Card>

@@ -42,16 +42,17 @@ export default React.createClass({
     }
   },
 
-  getData(item) {
-    // if is it not new record get data
-    return this.props._id ? this.props.record[item] : '';
-  },
-
   render() {
-
-    const {record} = this.props;
+    const {
+      name,
+      email,
+      phone,
+      website,
+      address,
+      capacity
+    } = this.props;
     const title =
-    this.props._id ? TAPi18n.__('edit', {name: record.name }) : TAPi18n.__('add');
+    this.props._id ? TAPi18n.__('editwithname', {name}) : TAPi18n.__('add');
     const numError = TAPi18n.__('error_num');
     const emailError = TAPi18n.__('error_email');
     const urlError = TAPi18n.__('error_url');
@@ -71,7 +72,7 @@ export default React.createClass({
             >
               <FormsyText
                 name='name'
-                value={this.getData('name')}
+                value={name}
                 hintText={<T label="preschool_name_hint" />}
                 floatingLabelText={<T label="form_name" />}
                 required
@@ -80,7 +81,7 @@ export default React.createClass({
               />
               <FormsyText
                 name='phone'
-                value={this.getData('phone')}
+                value={phone}
                 hintText={<T label="form_phone" />}
                 floatingLabelText={<T label="form_phone" />}
                 required
@@ -90,7 +91,7 @@ export default React.createClass({
               />
               <FormsyText
                 name='website'
-                value={this.getData('website')}
+                value={website}
                 hintText={<T label="form_website" />}
                 floatingLabelText={<T label="form_website" />}
                 fullWidth
@@ -99,7 +100,7 @@ export default React.createClass({
               />
               <FormsyText
                 name='email'
-                value={this.getData('email')}
+                value={email}
                 hintText={<T label="form_email" />}
                 floatingLabelText={<T label="form_email" />}
                 required
@@ -109,7 +110,7 @@ export default React.createClass({
               />
               <FormsyText
                 name='address'
-                value={this.getData('address')}
+                value={address}
                 hintText={<T label="form_address" />}
                 floatingLabelText={<T label="form_address" />}
                 multiLine={true}
@@ -120,7 +121,7 @@ export default React.createClass({
               />
               <FormsyText
                 name='capacity'
-                value={this.getData('capacity')}
+                value={capacity}
                 hintText={<T label="form_capacity" />}
                 floatingLabelText={<T label="form_capacity" />}
                 required

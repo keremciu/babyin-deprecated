@@ -43,7 +43,7 @@ export default React.createClass({
     } = this.props;
     const roles = _id ? this.props.user.roles[0] : '';
     const title =
-    this.props._id ? TAPi18n.__('edit', {name: email }) : TAPi18n.__('add');
+    this.props._id ? TAPi18n.__('editwithname', {name: email }) : TAPi18n.__('add');
 
     return (
       <div>

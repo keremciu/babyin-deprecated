@@ -7,9 +7,7 @@ export const singleComposer = ({context, _id, clearErrors}, onData) => {
   if (Meteor.subscribe('_preschool.single', _id).ready()) {
     const record = Collections._preschool.findOne(_id);
     if (record) {
-      onData(null, {record, error});
-    } else {
-      // FlowRouter.go('/colors');
+      onData(null, {...record, error});
     }
   }
   // clearErrors when unmounting the component

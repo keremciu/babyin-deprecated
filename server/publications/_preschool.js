@@ -14,9 +14,9 @@ export default function () {
     return _preschool.find(selector, options);
   });
 
-  Meteor.publish('_preschool.single', function (postId) {
-    check(postId, String);
-    const selector = {_id: postId};
+  Meteor.publish('_preschool.single', function (_id) {
+    check(_id, String);
+    const selector = {_id};
     return _preschool.find(selector);
   });
 }

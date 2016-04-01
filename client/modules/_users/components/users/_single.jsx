@@ -1,9 +1,20 @@
 import React from 'react';
 
+// material ui elements
+const UI = require('material-ui');
+const { Divider, Card, CardActions, CardTitle, FlatButton, CardText } = UI;
+
+// materail svg icons
+import EditIcon from 'material-ui/lib/svg-icons/image/edit';
+import DeleteIcon from 'material-ui/lib/svg-icons/action/delete';
+
 export default class extends React.Component {
+
   deleteRecord() {
-    // console.log('deleteRecord ', this.props._id);
-    this.props.deleteAction(this.props._id);
+    var ask = window.confirm(TAPi18n.__('delete_an_item'));
+    if (ask) {
+      this.props.deleteAction(this.props._id);
+    }
   }
 
   render() {
@@ -12,23 +23,35 @@ export default class extends React.Component {
 
     return (
       <div>
-
         {error ?
         <div className="alert alert-danger" onClick="">
           <span className="octicon octicon-megaphone" ></span>
           {error}
         </div> : null }
 
-        <h3>user _id: {_id}</h3>
-
-        <p><strong>first name:</strong> {firstName}</p>
-        <p><strong>last name:</strong> {lastName}</p>
-        <p><strong>email:</strong> {email}</p>
-        <p><strong>role:</strong> {roles}</p>
-        <p><strong>language:</strong> {language}</p>
-
-        <a href={'/users/' + _id + '/edit'}>edit</a> |
-        <a href="#" onClick={this.deleteRecord.bind(this)}>delete</a>
+        <Card>
+          <CardTitle title={firstName + ' ' + lastName} subtitle={email} />
+          <CardText>
+            <p>
+              <strong><T label="role" /></strong> {roles}
+            </p>
+            <Divider />
+            <p>
+              <strong><T label="language" /></strong> {language}
+            </p>
+          </CardText>
+          <CardActions>
+            <FlatButton
+              label={<T label="edit" />}
+              linkButton
+              icon={<EditIcon />}
+              href={'/users/' + _id + '/edit'} />
+            <FlatButton
+              label={<T label="delete" />}
+              icon={<DeleteIcon />}
+              onClick={this.deleteRecord.bind(this)} />
+          </CardActions>
+        </Card>
       </div>
     );
   }

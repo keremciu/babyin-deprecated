@@ -23,9 +23,11 @@
 
 	/*ListView*/
 	"actions": "Actions",
+	"edit": "Edit",
+	"delete": "Delete",
 
 	/*FormHeads*/
-	"edit": "Edit: __name__",
+	"editwithname": "Edit: __name__",
 	"add": "Add New",
 
 	/*FormErrors*/

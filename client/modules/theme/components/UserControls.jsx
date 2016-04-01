@@ -32,7 +32,7 @@ export default class extends React.Component {
           style={styles.iconmenu}
           iconButtonElement={
             <div style={styles.userarea}>
-              {email}
+              <span className="userarea--email">{email}</span>
               <IconButton><MoreVertIcon color='#ffffff' /></IconButton>
             </div>}
           targetOrigin={{horizontal: 'right', vertical: 'top'}}

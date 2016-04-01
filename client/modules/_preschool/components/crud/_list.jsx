@@ -7,19 +7,11 @@ const { Table, TableHeaderColumn, TableRow, TableHeader, TableRowColumn,
 
 // material ui svg icons
 import EditIcon from 'material-ui/lib/svg-icons/image/edit';
-import ContentAdd from 'material-ui/lib/svg-icons/content/add';
+import AddIcon from 'material-ui/lib/svg-icons/content/add';
 import ViewIcon from 'material-ui/lib/svg-icons/image/remove-red-eye';
 
-const styles = {
-  floatbtn: {
-    position: 'fixed',
-    bottom: 22,
-    right: 22,
-  },
-};
-
 export default ({collection}) => (
-  <div className='postlist'>
+  <div className='itemList'>
       <Table fullWidth>
         <TableHeader
           displaySelectAll={false}
@@ -48,11 +40,11 @@ export default ({collection}) => (
         </TableBody>
       </Table>
       <FloatingActionButton
+        className="float--btn"
         secondary={true}
-        style={styles.floatbtn}
         linkButton
         href="preschools/add">
-        <ContentAdd />
+        <AddIcon />
       </FloatingActionButton>
   </div>
 );

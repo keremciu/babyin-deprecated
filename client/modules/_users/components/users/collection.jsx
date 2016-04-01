@@ -1,24 +1,26 @@
 import React from 'react';
-import Sidebar from './_sidebar.jsx';
-// import Container from '../../containers/UsersCollectionContainer.jsx'
 
 import dataComposer from '../../composers/users/collection.jsx';
 import Component from './_collection.jsx';
 const Container = dataComposer(Component);
 
+// material ui elements
+const UI = require('material-ui');
+const { FloatingActionButton } = UI;
+
+import ContentAdd from 'material-ui/lib/svg-icons/content/add';
+
 export default class extends React.Component {
 
   render() {
     return (
-      <div className="bs-docs-section clearfix">
-        <div className="row">
-          <div className="col-md-3">
-            <Sidebar />
-          </div>
-          <div className="col-md-9">
-            <Container />
-          </div>
-        </div>
+      <div className="collection-grid">
+        <FloatingActionButton
+          className="float--btn"
+          linkButton href="preschools/add">
+            <ContentAdd />
+        </FloatingActionButton>
+        <Container />
       </div>
     );
   }

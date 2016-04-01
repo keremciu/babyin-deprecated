@@ -32,19 +32,13 @@ export default class extends React.Component {
 
   constructor(props) {
     super(props);
-    lang = TAPi18n.getLanguage();
     this.state = {open: false};
     this.handleLeftButton = this.handleLeftButton.bind(this);
-    this.handleClose = this.handleClose.bind(this);
     this.leftNav = this.leftNav.bind(this);
   }
 
   handleLeftButton() {
     return this.setState({open: !this.state.open});
-  }
-
-  handleClose() {
-    return this.setState({open: false});
   }
 
   leftNav() {
@@ -72,7 +66,7 @@ export default class extends React.Component {
             </div>
           }
         />
-        <LeftNav docked={false} containerClassName="container" open={this.state.open}>
+      <LeftNav zDepth={5} docked={false} containerClassName="leftNavigation" open={this.state.open}>
           <Card>
             <CardHeader
               title="title"
@@ -81,16 +75,13 @@ export default class extends React.Component {
           </Card>
             <MenuItem
               linkButton
-              href="/colors"
-              onTouchTap={this.handleClose}>Colors</MenuItem>
+              href="/colors">Colors</MenuItem>
             <MenuItem
               linkButton
-              href="/preschools"
-              onTouchTap={this.handleClose}><T label="preschools" /></MenuItem>
+              href="/preschools"><T label="preschools" /></MenuItem>
             <MenuItem
               linkButton
-              href="/users"
-              onTouchTap={this.handleClose}><T label="users" /></MenuItem>
+              href="/users"><T label="users" /></MenuItem>
           </LeftNav>
       </div>
     );

@@ -2,7 +2,17 @@
   "env": {
     "es6": true,
     "browser": true,
-    "node": true
+    "node": true,
+    "meteor": true,
+  },
+
+  "globals": {
+    "DocHead": false,
+    "FlowRouter": false,
+    "TAPi18n": false,
+    "Roles": false,
+    "Astro": false,
+    "Validators": false
   },
 
   "plugins": [

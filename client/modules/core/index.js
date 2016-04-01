@@ -12,6 +12,17 @@ var viewport = {
   name: 'viewport',
   content: 'width=device-width, initial-scale=1'
 };
+
+var capable = {
+  name: 'mobile-web-app-capable',
+  content: 'yes'
+};
+
+var theme = {
+  name: 'theme-color',
+  content: '#8726F7'
+};
+
 var favicon = {
   rel: 'icon',
   sizes: '16x16 32x32',
@@ -22,6 +33,8 @@ var favicon = {
 DocHead.setTitle(AppConfig.name);
 DocHead.addMeta(description);
 DocHead.addMeta(viewport);
+DocHead.addMeta(capable);
+DocHead.addMeta(theme);
 DocHead.addLink(favicon);
 
 export default {

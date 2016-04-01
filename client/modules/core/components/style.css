@@ -12,6 +12,24 @@ header {
   margin-bottom: 30px;
 }
 
+.leftNavigation {
+  z-index: 9999 !important;
+}
+
+.paper {
+  padding: 20px;
+}
+
+.form {
+  padding: 0px 20px;
+}
+
+.float--btn {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+}
+
 .page.opened .appbar {
     -moz-transform: translate(256px,0);
     -ms-transform: translate(256px,0);
@@ -61,6 +79,7 @@ footer {
 }
 
 @media screen and (max-width: 860px) {
+  .userarea--email,
   .logotitle {
     display: none;
   }

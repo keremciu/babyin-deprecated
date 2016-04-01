@@ -1,6 +1,5 @@
 import React from 'react';
 import {mount} from 'react-mounter';
-import T from '/client/modules/core/i18n.jsx';
 
 import {LayoutDefault} from '/client/configs/theme.jsx';
 

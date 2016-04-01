@@ -3,7 +3,7 @@
 	/*Config*/
 	"name": "Babyin",
 	"title": "Anaokullari",
-	"subtitle": "Create beautiful and functioning Meteor apps really quick",
+	"subtitle": "Anaokulları için özel bir yazılım",
 
 	/*Header*/
 	"account": "Hesap",
@@ -12,13 +12,31 @@
 	/* CollectionView */
 	"actions": "Eylemler",
 
+	/* Form */
+	"edit": "Düzenle: __name__",
+	"add": "Yeni Ekle",
+
+	/* Form Errors */
+	"error_num": "Lütfen sadece sayı girin",
+	"error_email": "Lütfen doğru bir e-posta adresi girin",
+	"error_url": "Lütfen doğru bir web adresi girin örn: http://ornek.com",
+
+	/* CommonFormItem */
+	"form_name": "Adı",
+	"form_phone": "Telefon Numarası",
+	"form_website": "Website Adresi",
+	"form_email": "E-Posta Adresi",
+	"form_address": "Adres",
+	"form_capacity": "Kapasite",
+
 	/* PostList */
-	"postname": "name",
+	"postname": "Adı",
 
 	/* PreschoolList */
 	"preschools": "Anaokulları",
 	"schoolname": "Adı",
 	"capacity": "Kapasite",
+	"preschool_name_hint": "Anaokulunun Adı",
 
 	/* UserList */
 	"users": "Kullanıcılar"

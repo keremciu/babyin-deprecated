@@ -41,9 +41,13 @@ export default class extends React.Component {
             </p>
           </CardText>
           <CardActions>
-            <FlatButton label="Other Preschools" linkButton href={'/preschools/'} />
-            <FlatButton label="Edit" linkButton href={'/preschools/' + _id + '/edit'} />
-            <FlatButton label="Delete" onClick={this.deleteRecord.bind(this)} />
+            <FlatButton
+              label="Edit"
+              linkButton
+              href={'/preschools/' + _id + '/edit'} />
+            <FlatButton
+              label="Delete"
+              onClick={this.deleteRecord.bind(this)} />
           </CardActions>
         </Card>
       </div>

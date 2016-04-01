@@ -16,6 +16,12 @@ import UsersAdd from './components/users/add.jsx';
 import UsersSingle from './components/users/single.jsx';
 import UsersEdit from './components/users/edit.jsx';
 
+const UI = require('material-ui');
+const { IconButton } = UI;
+
+import CloseIcon from 'material-ui/lib/svg-icons/navigation/close';
+import BackIcon from 'material-ui/lib/svg-icons/navigation/arrow-back';
+
 export default function (injectDeps, {FlowRouter}) {
 
   const LayoutDefaultCtx = injectDeps(LayoutDefault);
@@ -101,57 +107,61 @@ export default function (injectDeps, {FlowRouter}) {
     }
   });
 
-  FlowRouter.route('/users', {
-    name: 'users.collection',
-    action() {
-
-      if (!Meteor.userId()) {
+  var compRoutes = FlowRouter.group({
+    prefix: '/users',
+    name: 'users',
+    triggersEnter: [ function () {
+      if (Meteor.userId() && Roles.userIsInRole(Meteor.userId(), 'admin')) {
+        route = FlowRouter.current();
+      } else {
         FlowRouter.go('/login');
       }
+    } ]
+  });
 
+  compRoutes.route('/', {
+    name: 'users.collection',
+    action() {
       mount(LayoutDefaultCtx, {
         content: () => (<UsersCollection />)
       });
     }
   });
 
-  FlowRouter.route('/users/add', {
+  compRoutes.route('/add', {
     name: 'users.add',
     action() {
-
-      if (!Meteor.userId()) {
-        FlowRouter.go('/login');
-      }
-
       mount(LayoutDefaultCtx, {
+        leftIcon: () => (<div>
+          <a href={FlowRouter.current().route.group.prefix}>
+            <IconButton><CloseIcon color='#ffffff' /></IconButton>
+          </a></div>),
         content: () => (<UsersAdd />)
       });
     }
   });
 
-  FlowRouter.route('/users/:_id', {
+  compRoutes.route('/:_id', {
     name: '_users.usersSingle',
     action({_id}) {
-
-      if (!Meteor.userId()) {
-        FlowRouter.go('/login');
-      }
-
       mount(LayoutDefaultCtx, {
+        leftIcon: () => (<div>
+          <a href={FlowRouter.current().route.group.prefix}>
+            <IconButton><BackIcon color='#ffffff' /></IconButton>
+          </a></div>),
         content: () => (<UsersSingle _id={_id}/>),
       });
     }
   });
 
-  FlowRouter.route('/users/:_id/edit', {
+  compRoutes.route('/:_id/edit', {
     name: '_users.usersEdit',
     action({_id}) {
-
-      if (!Meteor.userId()) {
-        FlowRouter.go('/login');
-      }
-
       mount(LayoutDefaultCtx, {
+        leftIcon: () => (<div>
+          <a href={FlowRouter.current().route.group.prefix}>
+            <IconButton><CloseIcon color='#ffffff' /></IconButton>
+          </a></div>),
         content: () => (<UsersEdit _id={_id}/>)
       });
     }

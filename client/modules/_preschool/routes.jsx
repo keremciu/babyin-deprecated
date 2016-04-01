@@ -3,15 +3,16 @@ import {mount} from 'react-mounter';
 
 import {LayoutDefault} from '/client/configs/theme.jsx';
 
-import ListView from './components/preschool/list.jsx';
-import AddView from './components/preschool/add.jsx';
-import SingleView from './components/preschool/single.jsx';
-import EditView from './components/preschool/edit.jsx';
+import ListView from './components/crud/list.jsx';
+import AddView from './components/crud/add.jsx';
+import SingleView from './components/crud/single.jsx';
+import EditView from './components/crud/edit.jsx';
 
 const UI = require('material-ui');
 const { IconButton } = UI;
 
-import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
+import CloseIcon from 'material-ui/lib/svg-icons/navigation/close';
+import BackIcon from 'material-ui/lib/svg-icons/navigation/arrow-back';
 
 export default function (injectDeps, {FlowRouter}) {
 
@@ -20,9 +21,13 @@ export default function (injectDeps, {FlowRouter}) {
   var compRoutes = FlowRouter.group({
     prefix: '/preschools',
     name: 'preschools',
-    // triggersEnter: [function(context, redirect) {
-    //   // console.log('running group triggers');
-    // }]
+    triggersEnter: [ function () {
+      if (Meteor.userId() && Roles.userIsInRole(Meteor.userId(), 'admin')) {
+        route = FlowRouter.current();
+      } else {
+        FlowRouter.go('/login');
+      }
+    } ]
   });
 
   compRoutes.route('/', {
@@ -37,8 +42,8 @@ export default function (injectDeps, {FlowRouter}) {
     action() {
       mount(LayoutDefaultCtx, {
         leftIcon: () => (<div>
-          <a href="/preschools">
-            <IconButton><NavigationClose color='#ffffff' /></IconButton>
+          <a href={FlowRouter.current().route.group.prefix}>
+            <IconButton><CloseIcon color='#ffffff' /></IconButton>
           </a></div>),
         content: () => (<AddView />)
       });
@@ -48,6 +53,10 @@ export default function (injectDeps, {FlowRouter}) {
   compRoutes.route('/:_id', {
     action({_id}) {
       mount(LayoutDefaultCtx, {
+        leftIcon: () => (<div>
+          <a href={FlowRouter.current().route.group.prefix}>
+            <IconButton><BackIcon color='#ffffff' /></IconButton>
+          </a></div>),
         content: () => (<SingleView _id={_id}/>)
       });
     }
@@ -57,8 +66,8 @@ export default function (injectDeps, {FlowRouter}) {
     action({_id}) {
       mount(LayoutDefaultCtx, {
         leftIcon: () => (<div>
-          <a href="/preschools">
-            <IconButton><NavigationClose color='#ffffff' /></IconButton>
+          <a href={FlowRouter.current().route.group.prefix}>
+            <IconButton><CloseIcon color='#ffffff' /></IconButton>
           </a></div>),
         content: () => (<EditView _id={_id}/>)
       });

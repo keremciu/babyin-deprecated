@@ -59,7 +59,7 @@ export default function () {
       record.emails[0].set('address', data.email);
       record.save();
 
-      Roles.removeUsersFromRoles(_id, [ 'admin', 'teacher', 'family' ])
+      Roles.removeUsersFromRoles(_id, [ 'admin', 'director', 'teacher', 'family' ]);
       Roles.setUserRoles(_id, data.role);
 
     },

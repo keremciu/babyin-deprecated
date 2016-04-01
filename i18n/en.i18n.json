@@ -3,14 +3,31 @@
 	/*Config*/
 	"name": "Babyin",
 	"title": "Preschools.",
-	"subtitle": "Create beautiful and functioning Meteor apps really quick",
+	"subtitle": "SaaS solution for preschools",
 
-	/*Home*/
+	/*Header*/
 	"account": "Account",
 	"signout": "Sign Out",
 
 	/* CollectionView */
 	"actions": "Actions",
+
+	/* Form */
+	"edit": "Edit: __name__",
+	"add": "Add New",
+
+	/* Form Errors */
+	"error_num": "Please only use numbers",
+	"error_email": "Please write an e-mail address",
+	"error_url": "Please write an url address like http://example.com",
+
+	/* CommonFormItem */
+	"form_name": "Name",
+	"form_phone": "Phone",
+	"form_website": "Website URL",
+	"form_email": "E-Mail Address",
+	"form_address": "Address",
+	"form_capacity": "Capacity",
 
 	/* PostList */
 	"postname": "name",
@@ -19,7 +36,7 @@
 	"preschools": "Preschools",
 	"schoolname": "Name",
 	"capacity": "Capacity",
-
+	"preschool_name_hint": "The name of preschool",
 
 	/* UserList */
 	"users": "Users"

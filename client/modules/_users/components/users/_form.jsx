@@ -1,12 +1,16 @@
 import React from 'react';
-import {Form} from 'formsy-react';
+import { Form } from 'formsy-react';
 
 const FMUI = require('formsy-material-ui');
-const {FormsySelect, FormsyText} = FMUI;
+const { FormsyText, FormsySelect } = FMUI;
 const UI = require('material-ui');
-const {MenuItem, RaisedButton} = UI;
+const { MenuItem, FloatingActionButton, Toolbar, ToolbarGroup, ToolbarTitle } = UI;
+
+// material ui svg icons
+import DoneIcon from 'material-ui/lib/svg-icons/action/done';
 
 export default React.createClass({
+
   getInitialState() {
     return {canSubmit: false};
   },
@@ -31,14 +35,6 @@ export default React.createClass({
       this.props.submitAction(model);
     }
   },
-
-  styles: {
-    paperStyle: {
-      margin: 'auto',
-      padding: 20
-    }
-  },
-
   render() {
 
     const {
@@ -50,20 +46,23 @@ export default React.createClass({
     } = this.props;
     const roles = _id ? Roles.getRolesForUser(_id)[0] : '';
     const title = _id ? 'Edit: ' + email : 'Add new';
-    const buttonLabel = 'Save';
-    let {paperStyle} = this.styles;
 
     return (
-      <div style={paperStyle}>
-        <h3>{title}</h3>
+      <div>
+        <Toolbar>
+          <ToolbarGroup>
+            <ToolbarTitle text={title} />
+          </ToolbarGroup>
+        </Toolbar>
         <Formsy.Form
+          className="form"
           onValid={this.enableButton}
           onInvalid={this.disableButton}
           onValidSubmit={this.submitForm}>
           <FormsyText
             name='firstName'
             hintText="What is your name?"
-            loatingLabelText="Firstname"
+            floatingLabelText="Firstname"
             value={firstName}
             required
             fullWidth/>
@@ -89,6 +88,7 @@ export default React.createClass({
             value={roles}>
             <MenuItem value={'family'} primaryText="Family Member"/>
             <MenuItem value={'teacher'} primaryText="Teacher"/>
+            <MenuItem value={'director'} primaryText="Director"/>
             <MenuItem value={'admin'} primaryText="Admin"/>
           </FormsySelect>
           <FormsySelect
@@ -100,11 +100,13 @@ export default React.createClass({
             <MenuItem value={'en'} primaryText="English"/>
             <MenuItem value={'tr'} primaryText="Türkçe"/>
           </FormsySelect>
-          <RaisedButton
+          <FloatingActionButton
+            className="float--btn"
+            secondary={true}
             type="submit"
-            label={buttonLabel}
-            disabled={!this.state.canSubmit}
-            primary={true}/>
+            disabled={!this.state.canSubmit}>
+            <DoneIcon />
+          </FloatingActionButton>
         </Formsy.Form>
       </div>
     );

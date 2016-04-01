@@ -1,10 +1,14 @@
 import React from 'react';
 import { Form } from 'formsy-react';
 
+// material ui
 const FMUI = require('formsy-material-ui');
 const { FormsyText } = FMUI;
 const UI = require('material-ui');
-const { RaisedButton } = UI;
+const { FloatingActionButton, Toolbar, ToolbarGroup, ToolbarTitle } = UI;
+
+// material ui svg icons
+import DoneIcon from 'material-ui/lib/svg-icons/action/done';
 
 export default React.createClass({
 
@@ -12,18 +16,6 @@ export default React.createClass({
     return {
       canSubmit: false
     };
-  },
-
-  styles: {
-    paperStyle: {
-      padding: 20
-    },
-  },
-
-  errorMessages: {
-    numError: 'Please only use numbers',
-    emailError: 'Please write an e-mail address',
-    urlError: 'Please write an url address like http://example.com',
   },
 
   enableButton() {
@@ -39,14 +31,13 @@ export default React.createClass({
   },
 
   submitForm(model) {
-    // Submit your validated form
-    // console.log("Model: ", model)
-
     // check this item new or old
     // if this item is old, it has a "_id" prop.
     if (this.props._id) {
+      // Submit your validated UPDATE form with submit action of the module
       this.props.submitAction(model, this.props._id);
     } else {
+      // // Submit your validated ADD form with submit action of the module
       this.props.submitAction(model);
     }
   },
@@ -59,15 +50,21 @@ export default React.createClass({
   render() {
 
     const {record} = this.props;
-    const title = this.props._id ? 'Edit: ' + record.name : 'Add new';
-    const buttonLabel = 'Save';
-    let styles = this.styles;
-    let { numError, emailError, urlError } = this.errorMessages;
+    const title =
+    this.props._id ? <T label="edit" options={{ name: record.name }} /> : <T label="add" />;
+    const numError = <T label="error_num" />;
+    const emailError = <T label="error_email" />;
+    const urlError = <T label="error_url" />;
 
     return (
-        <div style={styles.paperStyle}>
-          <h3>{title}</h3>
+        <div>
+          <Toolbar>
+            <ToolbarGroup>
+              <ToolbarTitle text={title} />
+            </ToolbarGroup>
+          </Toolbar>
           <Formsy.Form
+            className="form"
             onValid={this.enableButton}
             onInvalid={this.disableButton}
             onValidSubmit={this.submitForm}
@@ -75,16 +72,17 @@ export default React.createClass({
               <FormsyText
                 name='name'
                 value={this.getData('name')}
-                hintText="The name of preschool"
-                floatingLabelText="Name"
+                hintText={<T label="preschool_name_hint" />}
+                floatingLabelText={<T label="form_name" />}
                 required
                 fullWidth
+                validations="minLength:3"
               />
               <FormsyText
                 name='phone'
                 value={this.getData('phone')}
-                hintText="Phone number"
-                floatingLabelText="Phone"
+                hintText={<T label="form_phone" />}
+                floatingLabelText={<T label="form_phone" />}
                 required
                 fullWidth
                 validations="isNumeric,minLength:5,maxLength:20"
@@ -93,9 +91,8 @@ export default React.createClass({
               <FormsyText
                 name='website'
                 value={this.getData('website')}
-                hintText="Website URL"
-                floatingLabelText="Website"
-                required
+                hintText={<T label="form_website" />}
+                floatingLabelText={<T label="form_website" />}
                 fullWidth
                 validations="isUrl"
                 validationError={urlError}
@@ -103,8 +100,8 @@ export default React.createClass({
               <FormsyText
                 name='email'
                 value={this.getData('email')}
-                hintText="E-Mail Adress"
-                floatingLabelText="E-Mail Address"
+                hintText={<T label="form_email" />}
+                floatingLabelText={<T label="form_email" />}
                 required
                 fullWidth
                 validations="isEmail"
@@ -113,26 +110,31 @@ export default React.createClass({
               <FormsyText
                 name='address'
                 value={this.getData('address')}
-                hintText="Address"
-                floatingLabelText="Address"
+                hintText={<T label="form_address" />}
+                floatingLabelText={<T label="form_address" />}
+                multiLine={true}
+                rows={2}
+                rowsMax={4}
                 required
                 fullWidth
               />
               <FormsyText
                 name='capacity'
                 value={this.getData('capacity')}
-                hintText="Capacity"
-                floatingLabelText="Capacity"
+                hintText={<T label="form_capacity" />}
+                floatingLabelText={<T label="form_capacity" />}
                 required
                 fullWidth
                 validations="isNumeric,minLength:1,maxLength:20"
                 validationError={numError}
               />
-              <RaisedButton
-                label={buttonLabel}
+              <FloatingActionButton
+                className="float--btn"
+                secondary={true}
                 type="submit"
-                disabled={!this.state.canSubmit}
-                primary={true} />
+                disabled={!this.state.canSubmit}>
+                <DoneIcon />
+              </FloatingActionButton>
           </Formsy.Form>
         </div>
     );

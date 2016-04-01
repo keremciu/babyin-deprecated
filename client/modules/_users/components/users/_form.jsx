@@ -24,9 +24,6 @@ export default React.createClass({
   },
 
   submitForm(model) {
-    // Submit your validated form
-    // console.log("Model: ", model)
-
     // check this item new or old
     // if this item is old, it has a "_id" prop.
     if (this.props._id) {
@@ -44,8 +41,9 @@ export default React.createClass({
       email,
       language
     } = this.props;
-    const roles = _id ? Roles.getRolesForUser(_id)[0] : '';
-    const title = _id ? 'Edit: ' + email : 'Add new';
+    const roles = _id ? this.props.user.roles[0] : '';
+    const title =
+    this.props._id ? TAPi18n.__('edit', {name: email }) : TAPi18n.__('add');
 
     return (
       <div>
@@ -61,22 +59,22 @@ export default React.createClass({
           onValidSubmit={this.submitForm}>
           <FormsyText
             name='firstName'
-            hintText="What is your name?"
-            floatingLabelText="Firstname"
+            hintText={<T label="firstname_hint" />}
+            floatingLabelText={<T label="firstname" />}
             value={firstName}
             required
             fullWidth/>
           <FormsyText
             name='lastName'
-            hintText="What is your last name?"
-            floatingLabelText="Lastname"
+            hintText={<T label="lastname_hint" />}
+            floatingLabelText={<T label="lastname" />}
             value={lastName}
             required
             fullWidth/>
           <FormsyText
             name='email'
-            hintText="What is your e-mail adress?"
-            floatingLabelText="E-Mail Address"
+            hintText={<T label="form_email_hint" />}
+            floatingLabelText={<T label="form_email" />}
             value={email}
             required
             fullWidth/>
@@ -84,18 +82,26 @@ export default React.createClass({
             name='role'
             fullWidth
             required
-            floatingLabelText="User role"
+            floatingLabelText={<T label="role" />}
             value={roles}>
-            <MenuItem value={'family'} primaryText="Family Member"/>
-            <MenuItem value={'teacher'} primaryText="Teacher"/>
-            <MenuItem value={'director'} primaryText="Director"/>
-            <MenuItem value={'admin'} primaryText="Admin"/>
+            <MenuItem
+              value={'family'}
+              primaryText={<T label="family" />} />
+            <MenuItem
+              value={'teacher'}
+              primaryText={<T label="teacher" />} />
+            <MenuItem
+              value={'director'}
+              primaryText={<T label="director" />}/>
+            <MenuItem
+              value={'admin'}
+              primaryText={<T label="admin" />}/>
           </FormsySelect>
           <FormsySelect
             name='language'
             fullWidth
             required
-            floatingLabelText="User language"
+            floatingLabelText={<T label="language" />}
             value={language}>
             <MenuItem value={'en'} primaryText="English"/>
             <MenuItem value={'tr'} primaryText="Türkçe"/>

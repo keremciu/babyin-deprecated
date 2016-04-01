@@ -7,7 +7,7 @@ const { Card, CardActions, CardHeader, FlatButton, CardText } = UI;
 export default class extends React.Component {
 
   deleteRecord() {
-    var ask = window.confirm('Are you sure you want to delete this?');
+    var ask = window.confirm(TAPi18n.__('delete_an_item'));
     if (ask) {
       this.props.deleteAction(this.props._id);
     }
@@ -25,19 +25,19 @@ export default class extends React.Component {
           />
           <CardText>
             <p>
-              Phone: {record.phone}
+              <T label="form_phone" />: {record.phone}
             </p>
             <p>
-              Website: {record.website}
+              <T label="form_website" />: {record.website}
             </p>
             <p>
-              Address: {record.address}
+              <T label="form_address" />: {record.address}
             </p>
             <p>
-              Capacity: {record.capacity}
+              <T label="capacity" />: {record.capacity}
             </p>
             <p>
-              Created At: {record.createdAt.toString()}
+              <T label="created_at" />: {record.createdAt.toString()}
             </p>
           </CardText>
           <CardActions>

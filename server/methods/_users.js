@@ -27,6 +27,7 @@ export default function () {
         firstName: data.firstName,
         lastName: data.lastName
       });
+
       // console.log('new user created with _id_new', _id_new);
       Roles.setUserRoles(_idNew, data.role);
 

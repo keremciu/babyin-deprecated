@@ -18,8 +18,9 @@ export default ({collection}) => (
           adjustForCheckbox={false}
         >
           <TableRow>
-            <TableHeaderColumn><T label="schoolname" /></TableHeaderColumn>
-            <TableHeaderColumn><T label="capacity" /></TableHeaderColumn>
+            <TableHeaderColumn><T label="fullname" /></TableHeaderColumn>
+            <TableHeaderColumn><T label="form_email" /></TableHeaderColumn>
+            <TableHeaderColumn><T label="role" /></TableHeaderColumn>
             <TableHeaderColumn><T label="actions" /></TableHeaderColumn>
           </TableRow>
         </TableHeader>
@@ -29,8 +30,11 @@ export default ({collection}) => (
         >
           {collection.map(record => (
             <TableRow>
-              <TableRowColumn><strong>{record.firstEmail()}</strong></TableRowColumn>
-              <TableRowColumn><strong>{record.profile.firstName} {record.profile.lastName}</strong></TableRowColumn>
+              <TableRowColumn><strong>
+                {record.profile.firstName} {record.profile.lastName}</strong>
+              </TableRowColumn>
+              <TableRowColumn>{record.firstEmail()}</TableRowColumn>
+              <TableRowColumn>{record.roles[0]}</TableRowColumn>
               <TableRowColumn className="table--actions">
                 <a href={`/users/${record._id}`}><ViewIcon hoverColor="#8726F7" /></a>
                 <a href={`/users/${record._id}/edit`}><EditIcon hoverColor="#8726F7" /></a>

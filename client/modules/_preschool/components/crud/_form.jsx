@@ -51,10 +51,10 @@ export default React.createClass({
 
     const {record} = this.props;
     const title =
-    this.props._id ? <T label="edit" options={{ name: record.name }} /> : <T label="add" />;
-    const numError = <T label="error_num" />;
-    const emailError = <T label="error_email" />;
-    const urlError = <T label="error_url" />;
+    this.props._id ? TAPi18n.__('edit', {name: record.name }) : TAPi18n.__('add');
+    const numError = TAPi18n.__('error_num');
+    const emailError = TAPi18n.__('error_email');
+    const urlError = TAPi18n.__('error_url');
 
     return (
         <div>

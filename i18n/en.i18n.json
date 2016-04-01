@@ -9,36 +9,56 @@
 	"account": "Account",
 	"signout": "Sign Out",
 
-	/* CollectionView */
+	/*Dialogs*/
+	"delete_an_item": "Are you sure you want to delete this?",
+
+	/*Globals*/
+	"created_at": "Created at",
+
+	/*Roles*/
+	"family": "Family Member",
+	"teacher": "Teacher",
+	"director": "Director of school",
+	"admin": "Admin",
+
+	/*ListView*/
 	"actions": "Actions",
 
-	/* Form */
+	/*FormHeads*/
 	"edit": "Edit: __name__",
 	"add": "Add New",
 
-	/* Form Errors */
+	/*FormErrors*/
 	"error_num": "Please only use numbers",
 	"error_email": "Please write an e-mail address",
 	"error_url": "Please write an url address like http://example.com",
 
-	/* CommonFormItem */
+	/*CommonFormItem*/
 	"form_name": "Name",
 	"form_phone": "Phone",
 	"form_website": "Website URL",
 	"form_email": "E-Mail Address",
+	"form_email_hint": "What is your e-mail adress?",
 	"form_address": "Address",
 	"form_capacity": "Capacity",
 
-	/* PostList */
+	/*PostList*/
 	"postname": "name",
 
-	/* PreschoolList */
+	/*Preschool*/
 	"preschools": "Preschools",
 	"schoolname": "Name",
 	"capacity": "Capacity",
 	"preschool_name_hint": "The name of preschool",
 
-	/* UserList */
-	"users": "Users"
+	/*Users*/
+	"users": "Users",
+	"fullname": "Full Name",
+	"role": "Role",
+	"language": "Dil",
+	"firstname": "First Name",
+	"firstname_hint": "What is your name?",
+	"lastname": "Last Name",
+	"lastname_hint": "What is your last name?"
 
 }

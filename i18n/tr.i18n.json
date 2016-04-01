@@ -9,36 +9,56 @@
 	"account": "Hesap",
 	"signout": "Çıkış Yap",
 
-	/* CollectionView */
+	/*Dialogs*/
+	"delete_an_item": "Silmek istediğine emin misin?",
+
+	/*Globals*/
+	"created_at": "Created at",
+
+	/*Roles*/
+	"family": "Aile Üyesi",
+	"teacher": "Öğretmen",
+	"director": "Okul Yöneticisi",
+	"admin": "Operasyon Ekibi",
+
+	/*ListView*/
 	"actions": "Eylemler",
 
-	/* Form */
+	/*FormHeads*/
 	"edit": "Düzenle: __name__",
 	"add": "Yeni Ekle",
 
-	/* Form Errors */
+	/*FormErrors*/
 	"error_num": "Lütfen sadece sayı girin",
 	"error_email": "Lütfen doğru bir e-posta adresi girin",
 	"error_url": "Lütfen doğru bir web adresi girin örn: http://ornek.com",
 
-	/* CommonFormItem */
+	/*CommonFormItems*/
 	"form_name": "Adı",
 	"form_phone": "Telefon Numarası",
 	"form_website": "Website Adresi",
 	"form_email": "E-Posta Adresi",
+	"form_email_hint": "E-posta adresin nedir?",
 	"form_address": "Adres",
 	"form_capacity": "Kapasite",
 
-	/* PostList */
+	/*PostList*/
 	"postname": "Adı",
 
-	/* PreschoolList */
+	/*Preschool*/
 	"preschools": "Anaokulları",
 	"schoolname": "Adı",
 	"capacity": "Kapasite",
 	"preschool_name_hint": "Anaokulunun Adı",
 
-	/* UserList */
-	"users": "Kullanıcılar"
+	/*User*/
+	"users": "Kullanıcılar",
+	"fullname": "Tam Adı",
+	"role": "Rol",
+	"language": "Dil",
+	"firstname": "Adın",
+	"firstname_hint": "Adın nedir?",
+	"lastname": "Soyadın",
+	"lastname_hint": "Soyadın nedir?"
 
 }

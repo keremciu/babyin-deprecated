@@ -11,7 +11,7 @@ import Password from './components/password/wrapper.jsx';
 import Account from './components/account/wrapper.jsx';
 import Profile from './components/profile/wrapper.jsx';
 
-import UsersCollection from './components/users/collection.jsx';
+import UsersList from './components/users/list.jsx';
 import UsersAdd from './components/users/add.jsx';
 import UsersSingle from './components/users/single.jsx';
 import UsersEdit from './components/users/edit.jsx';
@@ -120,10 +120,10 @@ export default function (injectDeps, {FlowRouter}) {
   });
 
   compRoutes.route('/', {
-    name: 'users.collection',
+    name: 'users.list',
     action() {
       mount(LayoutDefaultCtx, {
-        content: () => (<UsersCollection />)
+        content: () => (<UsersList />)
       });
     }
   });

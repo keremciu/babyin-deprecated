@@ -4,6 +4,9 @@ import React from 'react';
 const UI = require('material-ui');
 const { Card, CardHeader, AppBar, LeftNav, MenuItem } = UI;
 
+// material ui svg icons
+import RemoveRedEye from 'material-ui/lib/svg-icons/image/remove-red-eye';
+
 function handleTouchTap() {
   FlowRouter.go('/');
 }
@@ -78,6 +81,7 @@ export default class extends React.Component {
               href="/colors">Colors</MenuItem>
             <MenuItem
               linkButton
+              rightIcon={<RemoveRedEye />}
               href="/preschools"><T label="preschools" /></MenuItem>
             <MenuItem
               linkButton

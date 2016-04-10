@@ -7,7 +7,8 @@ import coreModule from './modules/core';
 import commentsModule from './modules/comments';
 import _usersModule from './modules/_users';
 import _colorsModule from './modules/_colors';
-import _preschoolModule from './modules/_preschool';
+import _schoolModule from './modules/_school';
+import _classroomModule from './modules/_classroom';
 
 // get logged user language information
 // const loggedIn = Meteor.userId() || false;
@@ -41,7 +42,8 @@ app.loadModule(coreModule);
 app.loadModule(commentsModule);
 app.loadModule(_usersModule);
 app.loadModule(_colorsModule);
-app.loadModule(_preschoolModule);
+app.loadModule(_schoolModule);
+app.loadModule(_classroomModule);
 
 // init app
 app.init();

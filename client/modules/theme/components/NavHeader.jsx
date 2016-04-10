@@ -2,10 +2,9 @@ import React from 'react';
 
 // material-ui elements
 const UI = require('material-ui');
-const { Card, CardHeader, AppBar, LeftNav, MenuItem } = UI;
+const { Card, CardHeader, AppBar, LeftNav, Menu, MenuItem } = UI;
 
 // material ui svg icons
-import RemoveRedEye from 'material-ui/lib/svg-icons/image/remove-red-eye';
 
 function handleTouchTap() {
   FlowRouter.go('/');
@@ -31,6 +30,12 @@ const styles = {
   }
 };
 
+const menuItems = [
+  { route: '/classrooms/', text: 'classrooms' },
+  { route: '/schools/', text: 'schools' },
+  { route: '/users/', text: 'users' }
+];
+
 export default class extends React.Component {
 
   constructor(props) {
@@ -38,6 +43,7 @@ export default class extends React.Component {
     this.state = {open: false};
     this.handleLeftButton = this.handleLeftButton.bind(this);
     this.leftNav = this.leftNav.bind(this);
+    this.isActive = this.isActive.bind(this);
   }
 
   handleLeftButton() {
@@ -46,6 +52,14 @@ export default class extends React.Component {
 
   leftNav() {
     return 'page ' + ((this.state.open) ? 'opened' : '');
+  }
+
+  isActive(route) {
+    let result = false;
+    if (FlowRouter.current().route.path === route) {
+      result = true;
+    }
+    return result;
   }
 
   render() {
@@ -69,25 +83,34 @@ export default class extends React.Component {
             </div>
           }
         />
-      <LeftNav zDepth={5} docked={false} containerClassName="leftNavigation" open={this.state.open}>
-          <Card>
-            <CardHeader
-              title="title"
-              subtitle="Subtitle"
-            />
-          </Card>
-            <MenuItem
-              linkButton
-              href="/colors">Colors</MenuItem>
-            <MenuItem
-              linkButton
-              rightIcon={<RemoveRedEye />}
-              href="/preschools"><T label="preschools" /></MenuItem>
-            <MenuItem
-              linkButton
-              href="/users"><T label="users" /></MenuItem>
-          </LeftNav>
-      </div>
+      <LeftNav
+        zDepth={5}
+        docked={false}
+        containerClassName="leftNavigation"
+        open={this.state.open}>
+        <Card>
+          <CardHeader
+            title="Kerem Sevencan"
+            subtitle="kerem@ritmix.org"
+            avatar="http://lorempixel.com/100/100/nature/"
+            showExpandableButton={true}
+          />
+        </Card>
+        <Menu>
+          {menuItems.map(function (item, i) {
+            return (
+              <MenuItem
+                index={i}
+                linkButton
+                href={FlowRouter.path(item.route)}
+                disabled={this.isActive(item.route)}
+                >
+                <T label={item.text} />
+              </MenuItem>);
+          }, this)}
+        </Menu>
+      </LeftNav>
+    </div>
     );
   }
 }

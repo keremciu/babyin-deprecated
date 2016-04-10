@@ -1,13 +1,14 @@
 import {useDeps} from 'react-simple-di';
 import {composeWithTracker, composeAll} from 'react-komposer';
 import _ from 'lodash';
+import User from '/lib/user.js';
 
 export const singleComposer = ({context, _id, clearErrors}, onData) => {
   const {Meteor, LocalState} = context();
   const error = LocalState.get('_users.DELETE_ERROR');
   if (Meteor.subscribe('users.single', _id).ready()) {
-    const user = Meteor.users.findOne(_id);
-    const email = _.get(user, 'emails[0].address', null);
+    const user = User.findOne(_id);
+    const email = user.firstEmail();
     // console.log('composer for single user', user);
     onData(null, {...user.profile, user, email, error});
   }

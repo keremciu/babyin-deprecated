@@ -37,21 +37,29 @@
 
 	/*CommonFormItem*/
 	"form_name": "Name",
+	"form_description": "Description",
 	"form_phone": "Phone",
 	"form_website": "Website URL",
 	"form_email": "E-Mail Address",
 	"form_email_hint": "What is your e-mail adress?",
 	"form_address": "Address",
 	"form_capacity": "Capacity",
+	"form_count": "Count",
 
 	/*PostList*/
 	"postname": "name",
 
-	/*Preschool*/
-	"preschools": "Preschools",
+	/*School*/
+	"schools": "Schools",
 	"schoolname": "Name",
 	"capacity": "Capacity",
-	"preschool_name_hint": "The name of preschool",
+	"school_name_hint": "Name of preschool",
+
+	/*Classroom*/
+	"classrooms": "Classrooms",
+	"classroom_schoolid": "Preschool Relation",
+	"classroom_name_hint": "Name of classroom",
+	"classroom_count_hint": "Count of classroom",
 
 	/*Users*/
 	"users": "Users",

@@ -1,12 +1,12 @@
-// import Component from '../components/Users/UsersCollection.jsx';
 import {useDeps} from 'react-simple-di';
 import {composeWithTracker, composeAll} from 'react-komposer';
+import User from '/lib/user.js';
 
 export const composer = ({context}, onData) => {
   const {Meteor} = context();
 
   if (Meteor.subscribe('users.collection').ready()) {
-    const collection = Meteor.users.find().fetch();
+    const collection = User.find().fetch();
     onData(null, {collection});
   }
 };

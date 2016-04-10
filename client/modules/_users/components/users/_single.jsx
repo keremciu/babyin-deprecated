@@ -23,12 +23,7 @@ export default class extends React.Component {
 
     return (
       <div>
-        {error ?
-        <div className="alert alert-danger" onClick="">
-          <span className="octicon octicon-megaphone" ></span>
-          {error}
-        </div> : null }
-
+        {error ? {error} : null }
         <Card>
           <CardTitle title={firstName + ' ' + lastName} subtitle={email} />
           <CardText>

@@ -13,7 +13,7 @@ const theme = getMuiTheme({
   fontFamily: 'Gotham Rounded, Arial, sans-serif',
   palette: {
     primary1Color: '#8726F7',
-    accent1Color: '#ff0000',
+    accent1Color: '#FBBC05',
   },
 });
 

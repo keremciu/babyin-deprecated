@@ -47,11 +47,17 @@
 	/*PostList*/
 	"postname": "Adı",
 
-	/*Preschool*/
-	"preschools": "Anaokulları",
+	/*School*/
+	"schools": "Okullar",
 	"schoolname": "Adı",
 	"capacity": "Kapasite",
-	"preschool_name_hint": "Anaokulunun Adı",
+	"school_name_hint": "Anaokulunun adı",
+
+	/*Classroom*/
+	"classrooms": "Sınıflar",
+	"classroom_schoolid": "Anaokulu",
+	"classroom_name_hint": "Sınıfın adı",
+	"classroom_count_hint": "Öğrenci sayısı",
 
 	/*User*/
 	"users": "Kullanıcılar",

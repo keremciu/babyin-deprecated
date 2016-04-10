@@ -30,11 +30,10 @@ export default ({collection}) => (
         >
           {collection.map(record => (
             <TableRow>
-              <TableRowColumn><strong>
-                {record.profile.firstName} {record.profile.lastName}</strong>
+              <TableRowColumn><strong>{record.fullName()}</strong>
               </TableRowColumn>
               <TableRowColumn>{record.firstEmail()}</TableRowColumn>
-              <TableRowColumn>{record.roles[0]}</TableRowColumn>
+              <TableRowColumn>{record.getRole()}</TableRowColumn>
               <TableRowColumn className="table--actions">
                 <a href={`/users/${record._id}`}><ViewIcon hoverColor="#8726F7" /></a>
                 <a href={`/users/${record._id}/edit`}><EditIcon hoverColor="#8726F7" /></a>
@@ -47,7 +46,7 @@ export default ({collection}) => (
         className="float--btn"
         secondary={true}
         linkButton
-        href="users/add">
+        href="/users/add">
         <AddIcon />
       </FloatingActionButton>
   </div>

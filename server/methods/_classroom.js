@@ -9,16 +9,13 @@ export default function () {
       check(data, {
         name: String,
         description: String,
-        count: Number,
+        studentCount: String,
         schoolId: String
       });
       check(_id, String);
 
-      // console.log('_classroom.add data', data);
-
       data._id = _id;
-      data.createdAt = new Date();
-      // const object = {_id, data.title, data.content, createdAt};
+
       _classroom.insert(data);
     },
 
@@ -26,13 +23,13 @@ export default function () {
       check(data, {
         name: String,
         description: String,
-        count: Number,
+        studentCount: String,
         schoolId: String
       });
       check(_id, String);
 
       let record = _classroom.findOne(_id);
-      const allowedFields = [ 'name','description', 'count', 'schoolId' ];
+      const allowedFields = [ 'name','description', 'studentCount', 'schoolId' ];
       allowedFields.forEach(key => record.set(key,data[key]) );
       record.save(allowedFields);
 
@@ -40,9 +37,11 @@ export default function () {
 
     '_classroom.delete'(_id) {
       check(_id, String);
-      //  console.log('_classroom.delete _id', _id);
+      // console.log('_classroom.delete _id', _id);
       let record = _classroom.findOne(_id);
-      record.remove();
+      // soft remove is the default delete function.
+      record.softRemove();
+      // if you need to delete exactly this record. you need to use this: record.remove();
     }
   });
 }

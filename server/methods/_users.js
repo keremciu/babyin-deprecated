@@ -1,5 +1,7 @@
 import {Meteor} from 'meteor/meteor';
 import {check} from 'meteor/check';
+import Collect from '/lib/user.js';
+import { Behavior } from 'meteor/jagi:astronomy';
 // import _ from 'lodash';
 
 Accounts.onCreateUser(function (options, user) {
@@ -11,6 +13,8 @@ Accounts.onCreateUser(function (options, user) {
   user.profile.lastName = options.lastName;
   user.profile.language = options.language;
 
+  Behavior.get('userstamp').definition.setCreatedBy(user);
+
   // Returns the user object
   return user;
 });
@@ -21,11 +25,11 @@ export default function () {
     '_users.add'(data) {
 
       check(data, {
-        email: String,
         firstName: String,
         lastName: String,
+        email: String,
         role: String,
-        language: String
+        language: String,
       });
 
       data.password = 'test1234';
@@ -33,6 +37,7 @@ export default function () {
       const _idNew = Accounts.createUser({
         email: data.email,
         password: data.password,
+        profile: data.profile,
         firstName: data.firstName,
         lastName: data.lastName,
         language: data.language
@@ -55,15 +60,23 @@ export default function () {
       });
       check(_id, String);
 
-      let record = Meteor.users.findOne(_id);
-      // const allowedFields = ['profile.firstName'];
-      // data.forEach(key => record.set(key,data[key]) );
+      var doc = Collect.findOne(_id);
 
-      record.profile.set('firstName', data.firstName);
-      record.profile.set('lastName', data.lastName);
-      record.profile.set('language', data.language);
-      record.emails[0].set('address', data.email);
-      record.save();
+      var profile = {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        language: data.language,
+      };
+
+      let emails = [];
+      emails[0] = {address: data.email, verified: 'no'};
+
+      doc.emails = emails;
+      doc.profile = profile;
+
+      doc.save({ environment: 'server' }, function () {
+        // function(dif) { console.log(dif); }
+      });
 
       Roles.removeUsersFromRoles(_id, [ 'admin', 'director', 'teacher', 'family' ]);
       Roles.setUserRoles(_id, data.role);
@@ -73,10 +86,12 @@ export default function () {
     '_users.delete'(_id) {
       check(_id, String);
       //  console.log('_users.delete _id', _id);
-      if (Meteor.userId() !== _id) {
-        let record = Meteor.users.findOne(_id);
-        record.remove();
-      }
+
+      let record = Collect.findOne(_id);
+      record.remove();
+      // if (Meteor.userId() !== _id) {
+      //
+      // }
     }
   });
 }

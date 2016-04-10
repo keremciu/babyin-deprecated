@@ -6,7 +6,7 @@ export default function () {
   Meteor.publish('_classroom.list', function () {
     const selector = {};
     const options = {
-      fields: {_id: 1, name: 1},
+      fields: {_id: 1, name: 1, studentCount: 1},
       limit: 50
     };
 

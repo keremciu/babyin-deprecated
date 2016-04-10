@@ -1,6 +1,6 @@
 {
-  "name": "mantra-demo",
-  "version": "0.2.1",
+  "name": "babyin",
+  "version": "0.5.1",
   "scripts": {
     "lint": "eslint ./lib ./client ./server --ext .js --ext .jsx",
     "lintfix": "npm run lint -- --fix",
@@ -35,8 +35,8 @@
     "lodash": "3.10.1",
     "mantra-core": "^1.2.0",
     "material-ui": "^0.15.0-alpha.2",
-    "react": "^0.14.7",
-    "react-dom": "^0.14.7",
+    "react": "^0.14.8",
+    "react-dom": "^0.14.8",
     "react-helmet": "^2.3.1",
     "react-komposer": "^1.7.1",
     "react-mixin": "^2.0.2",

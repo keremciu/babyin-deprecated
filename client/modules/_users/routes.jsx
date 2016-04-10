@@ -3,7 +3,6 @@ import {mount} from 'react-mounter';
 
 import {LayoutDefault} from '/client/configs/theme.jsx';
 
-
 import Login from './components/login/wrapper.jsx';
 import Register from './components/register/wrapper.jsx';
 import Password from './components/password/wrapper.jsx';

@@ -41,7 +41,7 @@ export default React.createClass({
       email,
       language
     } = this.props;
-    const roles = _id ? this.props.user.roles[0] : '';
+    const roles = _id ? this.props.user.getRole() : '';
     const title =
     this.props._id ? TAPi18n.__('editwithname', {name: email }) : TAPi18n.__('add');
 

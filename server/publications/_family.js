@@ -1,20 +1,20 @@
 import {Meteor} from 'meteor/meteor';
 import {check} from 'meteor/check';
-import school from '/lib/school.js';
+import family from '/lib/family.js';
 
 export default function () {
-  Meteor.publish('_school.list', function () {
+  Meteor.publish('_family.list', function () {
     const selector = {};
     const options = {
       limit: 50
     };
 
-    return school.find(selector, options);
+    return family.find(selector, options);
   });
 
-  Meteor.publish('_school.single', function (_id) {
+  Meteor.publish('_family.single', function (_id) {
     check(_id, String);
     const selector = {_id};
-    return school.find(selector);
+    return family.find(selector);
   });
 }

@@ -6,40 +6,41 @@ export default function () {
   Meteor.methods({
 
     '_school.add'(data, _id) {
-      check(data, {
-        name: String,
-        phone: String,
-        website: String,
-        email: String,
-        address: String,
-        capacity: String
-      });
-      check(_id, String);
 
+      let areas = school.getFields();
+      const checker = {};
+      areas.map(function (key) {
+        if (data[key.name]) {
+          checker[key.name] = key.type.class;
+        }
+      });
+
+      check(data, checker);
+      check(_id, String);
       data._id = _id;
 
-      // const object = {_id, data.title, data.content};
       const doc = new school(data);
       doc.save();
     },
 
     '_school.update'(data, _id) {
-      check(data, {
-        name: String,
-        phone: String,
-        website: String,
-        email: String,
-        address: String,
-        capacity: String
+
+      let doc = school.findOne(_id);
+      let items = school.getFields();
+      let fields = Object.keys(data);
+
+      const checker = {};
+      items.map(function (key) {
+        if (data[key.name]) {
+          checker[key.name] = key.type.class;
+          doc[key.name] = data[key.name];
+        }
       });
+
+      check(data, checker);
       check(_id, String);
 
-      var doc = school.findOne(_id);
-
-      const allowedFields = [ 'name','phone', 'email', 'website', 'address', 'capacity' ];
-      allowedFields.forEach(key => (doc[key] = data[key]) );
-
-      doc.validate({ fields: allowedFields }, function (err) {
+      doc.validate({ fields }, function (err) {
         if (!err) {
           doc.save({ environment: 'server' }, function () {
             // function(dif) { console.log(dif); }
@@ -51,8 +52,8 @@ export default function () {
 
     '_school.delete'(_id) {
       check(_id, String);
-      let record = school.findOne(_id);
-      record.remove();
+      let doc = school.findOne(_id);
+      doc.softRemove();
     }
   });
 }

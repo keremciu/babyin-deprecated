@@ -61,6 +61,9 @@
 	"classroom_name_hint": "Name of classroom",
 	"classroom_count_hint": "Count of classroom",
 
+	/*Family*/
+	"familys": "Families",
+
 	/*Users*/
 	"users": "Users",
 	"fullname": "Full Name",

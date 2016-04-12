@@ -30,6 +30,7 @@ header {
   bottom: 22px;
 }
 
+.main-content.opened,
 .page.opened .appbar {
     -moz-transform: translate(256px,0);
     -ms-transform: translate(256px,0);

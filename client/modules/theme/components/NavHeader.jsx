@@ -31,6 +31,7 @@ const styles = {
 };
 
 const menuItems = [
+  { route: '/familys/', text: 'familys' },
   { route: '/classrooms/', text: 'classrooms' },
   { route: '/schools/', text: 'schools' },
   { route: '/users/', text: 'users' }
@@ -85,7 +86,6 @@ export default class extends React.Component {
         />
       <LeftNav
         zDepth={5}
-        docked={false}
         containerClassName="leftNavigation"
         open={this.state.open}>
         <Card>

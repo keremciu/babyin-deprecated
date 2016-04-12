@@ -1,11 +1,13 @@
 import {useDeps} from 'react-simple-di';
 import {composeWithTracker, composeAll} from 'react-komposer';
+import family from '/lib/family.js';
 
 export const singleComposer = ({context, _id, clearErrors}, onData) => {
-  const {Meteor, Collections, LocalState} = context();
-  const error = LocalState.get('_classroom.DELETE_ERROR');
-  if (Meteor.subscribe('_classroom.single', _id).ready()) {
-    const record = Collections._classroom.findOne(_id);
+  const {Meteor, LocalState} = context();
+  const error = LocalState.get('_family.DELETE_ERROR');
+
+  if (Meteor.subscribe('_family.single', _id).ready()) {
+    const record = family.findOne(_id);
     if (record) {
       onData(null, {...record, error});
     }
@@ -16,8 +18,8 @@ export const singleComposer = ({context, _id, clearErrors}, onData) => {
 };
 
 export const depsMapper = (context, actions) => ({
-  deleteAction: actions._classroom.delete,
-  clearErrors: actions._classroom.clearErrors,
+  deleteAction: actions.family.delete,
+  clearErrors: actions.family.clearErrors,
   context: () => context
 });
 

@@ -59,6 +59,9 @@
 	"classroom_name_hint": "Sınıfın adı",
 	"classroom_count_hint": "Öğrenci sayısı",
 
+	/*Family*/
+	"familys": "Aileler",
+
 	/*User*/
 	"users": "Kullanıcılar",
 	"fullname": "Tam Adı",

@@ -1,4 +1,5 @@
 import {createApp} from 'mantra-core';
+import _familyModule from "./modules/_family";
 import initContext from './configs/context';
 import _ from 'lodash';
 
@@ -46,4 +47,5 @@ app.loadModule(_schoolModule);
 app.loadModule(_classroomModule);
 
 // init app
+app.loadModule(_familyModule);
 app.init();

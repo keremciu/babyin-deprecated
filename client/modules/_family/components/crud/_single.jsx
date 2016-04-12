@@ -2,7 +2,7 @@ import React from 'react';
 
 // material ui elements
 const UI = require('material-ui');
-const { Divider, Card, CardActions, CardTitle, FlatButton, CardText } = UI;
+const { Card, CardActions, CardTitle, FlatButton, CardText } = UI;
 
 // materail svg icons
 import EditIcon from 'material-ui/lib/svg-icons/image/edit';
@@ -21,23 +21,16 @@ export default class extends React.Component {
     const {
       _id,
       name,
-      description,
-      studentCount,
-      schoolId,
       saving
     } = this.props;
     return (
       <div>
         {saving ? <p>Saving...</p> : null}
         <Card>
-          <CardTitle title={name} subtitle={description} />
+          <CardTitle title={name} />
           <CardText>
             <p>
-              <strong><T label="form_capacity" /></strong> {studentCount}
-            </p>
-            <Divider />
-            <p>
-              <strong><T label="classroom_schoolid" /></strong> {schoolId}
+
             </p>
           </CardText>
           <CardActions>
@@ -45,7 +38,7 @@ export default class extends React.Component {
               label={<T label="edit" />}
               linkButton
               icon={<EditIcon />}
-              href={'/classrooms/' + _id + '/edit'} />
+              href={'/familys/' + _id + '/edit'} />
             <FlatButton
               label={<T label="delete" />}
               icon={<DeleteIcon />}

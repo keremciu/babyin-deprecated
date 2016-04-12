@@ -1,0 +1,150 @@
+'language': 'js',
+'root': '',
+'libFolderName': 'lib'
+'templates':
+  'js':
+    'action':
+      'placeHolders': [
+        "Collection Name"
+      ]
+      'content': """
+      export default {
+
+        // create
+        add({Meteor, LocalState, FlowRouter}, data) {
+          const _id = Meteor.uuid();
+          Meteor.call('_$1.add', data, _id, (err) => {
+            if (err) {
+              return LocalState.set('_$1.SAVE_ERROR', err.message);
+            }
+          });
+
+          FlowRouter.go(`/$1s/`);
+        },
+
+        // update
+        update({Meteor, LocalState, FlowRouter}, data, _id) {
+
+          // console.log ('actions._$1.update _id', _id);
+          // console.log ('actions._$1.update data', data);
+          Meteor.call('_$1.update', data, _id, (err) => {
+            if (err) {
+              return LocalState.set('_classroom.SAVE_ERROR', err.message);
+            }
+          });
+
+          FlowRouter.go(`/$1s/`);
+        },
+
+        delete({Meteor, LocalState, FlowRouter}, _id) {
+          // console.log ('actions._$1.delete _id', _id);
+          // console.log ('actions._$1.delete data', data);
+
+          Meteor.call('_$1.delete', _id, (err) => {
+            if (err) {
+              return LocalState.set('_$1.DELETE_ERROR', err.message);
+            }
+          });
+
+          FlowRouter.go(`/$1s/`);
+        },
+
+        // clearError
+        clearErrors({LocalState}) {
+          LocalState.set('_$1.DELETE_ERROR', null);
+          return LocalState.set('_$1.SAVE_ERROR', null);
+        }
+
+      };
+      """
+    'method':
+      'placeHolders': [
+        "Collection Name"
+      ]
+      'content': """
+        import {Meteor} from 'meteor/meteor';
+        import {check} from 'meteor/check';
+        import $1 from '/lib/$1.js';
+
+        export default function () {
+          Meteor.methods({
+
+            '_$1.add'(data, _id) {
+
+              let areas = $1.getFields();
+              const checker = {};
+              areas.map(function (key) {
+                if (data[key.name]) {
+                  checker[key.name] = key.type.class;
+                }
+              });
+
+              check(data, checker);
+              check(_id, String);
+              data._id = _id;
+
+              const doc = new $1(data);
+              doc.save();
+            },
+
+            '_$1.update'(data, _id) {
+
+              let doc = $1.findOne(_id);
+              let items = $1.getFields();
+              let fields = Object.keys(data);
+
+              const checker = {};
+              items.map(function (key) {
+                if (data[key.name]) {
+                  checker[key.name] = key.type.class;
+                  doc[key.name] = data[key.name];
+                }
+              });
+
+              check(data, checker);
+              check(_id, String);
+
+              doc.validate({ fields }, function (err) {
+                if (!err) {
+                  doc.save({ environment: 'server' }, function () {
+                    // function(dif) { console.log(dif); }
+                  });
+                }
+              });
+
+            },
+
+            '_$1.delete'(_id) {
+              check(_id, String);
+              let doc = $1.findOne(_id);
+              doc.softRemove();
+            }
+          });
+      };
+      """
+    'publication':
+      'placeHolders': [
+        "Collection Name"
+      ]
+      'content': """
+      import {Meteor} from 'meteor/meteor';
+      import {check} from 'meteor/check';
+      import $1 from '/lib/$1.js';
+
+      export default function () {
+        Meteor.publish('_$1.list', function () {
+          const selector = {};
+          const options = {
+            limit: 50
+          };
+
+          return $1.find(selector, options);
+        });
+
+        Meteor.publish('_$1.single', function (_id) {
+          check(_id, String);
+          const selector = {_id};
+          return $1.find(selector);
+        });
+      }
+      """

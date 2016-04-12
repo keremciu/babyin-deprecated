@@ -1,6 +1,6 @@
-import {_classroom} from '/lib/collections';
 import {Meteor} from 'meteor/meteor';
 import {check} from 'meteor/check';
+import classroom from '/lib/classroom.js';
 
 export default function () {
   Meteor.publish('_classroom.list', function () {
@@ -10,12 +10,12 @@ export default function () {
       limit: 50
     };
 
-    return _classroom.find(selector, options);
+    return classroom.find(selector, options);
   });
 
   Meteor.publish('_classroom.single', function (_id) {
     check( _id, String);
     const selector = {_id};
-    return _classroom.find(selector);
+    return classroom.find(selector);
   });
 }

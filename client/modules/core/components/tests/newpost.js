@@ -2,7 +2,7 @@ import React from 'react';
 const {describe, it} = global;
 import {expect} from 'chai';
 import {shallow} from 'enzyme';
-import NewPost from '../newpost.jsx';
+import NewPost from '../newpost.js';
 
 describe('core.components.newpost', () => {
   it('should show the error if there are any', () => {

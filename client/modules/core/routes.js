@@ -1,7 +1,7 @@
 import React from 'react';
 import {mount} from 'react-mounter';
 
-import {LayoutDefault} from '/client/configs/theme.jsx';
+import {LayoutDefault} from '/client/configs/theme.js';
 
 import PostList from './containers/postlist';
 import Post from './containers/post';

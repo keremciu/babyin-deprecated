@@ -2,7 +2,7 @@ import {Meteor} from 'meteor/meteor';
 
 export default () => {
   if (Meteor.users.find().count() === 0 ) {
-    const _defaultUser = Accounts.createUser({
+    const user = Accounts.createUser({
       email: 'kerem@ritmix.org',
       password: '65446544',
       firstName: 'Kerem',
@@ -10,6 +10,6 @@ export default () => {
       language: 'tr'
     });
 
-    Roles.setUserRoles(_defaultUser, 'admin');
+    Roles.setUserRoles(user, 'admin');
   }
 };

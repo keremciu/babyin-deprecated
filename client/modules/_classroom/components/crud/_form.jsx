@@ -7,8 +7,7 @@ const { FormsySelect, FormsyText } = FMUI;
 const UI = require('material-ui');
 const { MenuItem, FloatingActionButton, Toolbar, ToolbarGroup, ToolbarTitle } = UI;
 
-// material ui svg icons
-import DoneIcon from 'material-ui/lib/svg-icons/action/done';
+import DoneIcon from 'material-ui/svg-icons/action/done';
 
 export default React.createClass({
 

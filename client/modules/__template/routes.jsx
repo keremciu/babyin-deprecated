@@ -4,7 +4,7 @@ import {mount} from 'react-mounter';
 import {
   LayoutDefault,
   Simple
-} from '/client/configs/theme.jsx';
+} from '/client/configs/theme.js';
 
 export default function (injectDeps, {FlowRouter}) {
 

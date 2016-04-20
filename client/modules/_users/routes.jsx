@@ -1,7 +1,7 @@
 import React from 'react';
 import {mount} from 'react-mounter';
 
-import {LayoutDefault} from '/client/configs/theme.jsx';
+import {LayoutDefault} from '/client/configs/theme.js';
 
 import Login from './components/login/wrapper.jsx';
 import Register from './components/register/wrapper.jsx';
@@ -18,8 +18,8 @@ import UsersEdit from './components/users/edit.jsx';
 const UI = require('material-ui');
 const { IconButton } = UI;
 
-import CloseIcon from 'material-ui/lib/svg-icons/navigation/close';
-import BackIcon from 'material-ui/lib/svg-icons/navigation/arrow-back';
+import CloseIcon from 'material-ui/svg-icons/navigation/close';
+import BackIcon from 'material-ui/svg-icons/navigation/arrow-back';
 
 export default function (injectDeps, {FlowRouter}) {
 

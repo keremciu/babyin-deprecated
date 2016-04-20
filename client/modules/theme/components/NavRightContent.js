@@ -1,7 +1,7 @@
 import React from 'react';
 
-import authComposer from '/client/modules/_users/composers/account/auth.jsx';
-import _UserControls from './UserControls.jsx';
+import authComposer from '/client/modules/_users/composers/account/auth.js';
+import _UserControls from './UserControls.js';
 
 const UserControls = authComposer(_UserControls);
 

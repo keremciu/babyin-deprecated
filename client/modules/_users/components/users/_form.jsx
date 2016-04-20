@@ -3,11 +3,10 @@ import { Form } from 'formsy-react';
 
 const FMUI = require('formsy-material-ui');
 const { FormsyText, FormsySelect } = FMUI;
-const UI = require('material-ui');
+import * as UI from 'material-ui';
 const { MenuItem, FloatingActionButton, Toolbar, ToolbarGroup, ToolbarTitle } = UI;
 
-// material ui svg icons
-import DoneIcon from 'material-ui/lib/svg-icons/action/done';
+import DoneIcon from 'material-ui/svg-icons/action/done';
 
 export default React.createClass({
 
@@ -61,7 +60,7 @@ export default React.createClass({
             name='firstName'
             hintText={<T label="firstname_hint" />}
             floatingLabelText={<T label="firstname" />}
-            value={firstName}
+            defaultValue={firstName}
             required
             fullWidth/>
           <FormsyText

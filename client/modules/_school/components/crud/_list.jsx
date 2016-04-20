@@ -5,10 +5,9 @@ const UI = require('material-ui');
 const { Table, TableHeaderColumn, TableRow, TableHeader, TableRowColumn,
   TableBody, FloatingActionButton } = UI;
 
-// material ui svg icons
-import EditIcon from 'material-ui/lib/svg-icons/image/edit';
-import AddIcon from 'material-ui/lib/svg-icons/content/add';
-import ViewIcon from 'material-ui/lib/svg-icons/image/remove-red-eye';
+import EditIcon from 'material-ui/svg-icons/image/edit';
+import AddIcon from 'material-ui/svg-icons/content/add';
+import ViewIcon from 'material-ui/svg-icons/image/remove-red-eye';
 
 export default ({collection}) => (
   <div className='itemList'>

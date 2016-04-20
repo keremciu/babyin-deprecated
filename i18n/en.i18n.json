@@ -63,6 +63,7 @@
 
 	/*Family*/
 	"familys": "Families",
+	"family_name_hint": "Names of mother and father and their lastname",
 
 	/*Users*/
 	"users": "Users",

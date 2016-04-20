@@ -1,7 +1,7 @@
 import React from 'react';
 import {mount} from 'react-mounter';
 
-import {LayoutDefault} from '/client/configs/theme.jsx';
+import {LayoutDefault} from '/client/configs/theme.js';
 
 import ColorsList from './components/colors/collection.jsx';
 import ColorsView from './components/colors/single.jsx';

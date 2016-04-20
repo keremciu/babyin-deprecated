@@ -1,7 +1,7 @@
 import React from 'react';
 import {mount} from 'react-mounter';
 
-import {LayoutDefault} from '/client/configs/theme.jsx';
+import {LayoutDefault} from '/client/configs/theme.js';
 
 import ListView from './components/crud/list.jsx';
 import AddView from './components/crud/add.jsx';
@@ -11,8 +11,8 @@ import EditView from './components/crud/edit.jsx';
 const UI = require('material-ui');
 const { IconButton } = UI;
 
-import CloseIcon from 'material-ui/lib/svg-icons/navigation/close';
-import BackIcon from 'material-ui/lib/svg-icons/navigation/arrow-back';
+import CloseIcon from 'material-ui/svg-icons/navigation/close';
+import BackIcon from 'material-ui/svg-icons/navigation/arrow-back';
 
 export default function (injectDeps, {FlowRouter}) {
 

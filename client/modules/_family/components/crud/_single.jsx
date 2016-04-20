@@ -4,9 +4,8 @@ import React from 'react';
 const UI = require('material-ui');
 const { Card, CardActions, CardTitle, FlatButton, CardText } = UI;
 
-// materail svg icons
-import EditIcon from 'material-ui/lib/svg-icons/image/edit';
-import DeleteIcon from 'material-ui/lib/svg-icons/action/delete';
+import EditIcon from 'material-ui/svg-icons/image/edit';
+import DeleteIcon from 'material-ui/svg-icons/action/delete';
 
 export default class extends React.Component {
 

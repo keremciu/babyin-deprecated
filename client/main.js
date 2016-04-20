@@ -1,5 +1,4 @@
 import {createApp} from 'mantra-core';
-import _familyModule from "./modules/_family";
 import initContext from './configs/context';
 import _ from 'lodash';
 
@@ -10,6 +9,7 @@ import _usersModule from './modules/_users';
 import _colorsModule from './modules/_colors';
 import _schoolModule from './modules/_school';
 import _classroomModule from './modules/_classroom';
+import _familyModule from './modules/_family';
 
 // get logged user language information
 // const loggedIn = Meteor.userId() || false;

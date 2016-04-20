@@ -2,7 +2,7 @@ import React from 'react';
 const {describe, it} = global;
 import {expect} from 'chai';
 import {shallow} from 'enzyme';
-import Post from '../post.jsx';
+import Post from '../post.js';
 
 describe('core.components.post', () => {
   it('should display the post title', () => {

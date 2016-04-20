@@ -2,7 +2,7 @@ import React from 'react';
 
 // material-ui elements
 const UI = require('material-ui');
-const { Card, CardHeader, AppBar, LeftNav, Menu, MenuItem } = UI;
+const { Card, CardHeader, AppBar, Drawer, Menu, MenuItem } = UI;
 
 // material ui svg icons
 
@@ -84,7 +84,7 @@ export default class extends React.Component {
             </div>
           }
         />
-      <LeftNav
+      <Drawer
         zDepth={5}
         containerClassName="leftNavigation"
         open={this.state.open}>
@@ -109,7 +109,7 @@ export default class extends React.Component {
               </MenuItem>);
           }, this)}
         </Menu>
-      </LeftNav>
+      </Drawer>
     </div>
     );
   }

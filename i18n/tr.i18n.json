@@ -61,6 +61,7 @@
 
 	/*Family*/
 	"familys": "Aileler",
+	"family_name_hint": "Anne, babanın adı ve soyadı",
 
 	/*User*/
 	"users": "Kullanıcılar",

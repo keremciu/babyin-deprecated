@@ -2,8 +2,8 @@ import React from 'react';
 const {describe, it} = global;
 import {expect} from 'chai';
 import {shallow} from 'enzyme';
-import MainLayout from '../main_layout.jsx';
-import Navigation from '../navigation.jsx';
+import MainLayout from '../main_layout.js';
+import Navigation from '../navigation.js';
 
 describe('core.components.main_layout', () => {
   it('should contain navigation', () => {

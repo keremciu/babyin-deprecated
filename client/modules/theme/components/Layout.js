@@ -1,13 +1,12 @@
 import React from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import NavHeader from './NavHeader.jsx';
-import NavRightContent from './NavRightContent.jsx';
+import NavHeader from './NavHeader.js';
+import NavRightContent from './NavRightContent.js';
 
 import AppConfig from '/client/configs/app.js';
 
-// Custom theme
-import ThemeContainer from 'material-ui/lib/MuiThemeProvider';
-import getMuiTheme from 'material-ui/lib/styles/getMuiTheme';
+import ThemeContainer from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 const theme = getMuiTheme({
   fontFamily: 'Gotham Rounded, Arial, sans-serif',

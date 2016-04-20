@@ -5,9 +5,8 @@ const UI = require('material-ui');
 const { Table, TableHeaderColumn, TableRow, TableHeader,
   TableRowColumn, TableBody, FloatingActionButton } = UI;
 
-// material ui svg icons
-import EditIcon from 'material-ui/lib/svg-icons/image/edit';
-import ContentAdd from 'material-ui/lib/svg-icons/content/add';
+import EditIcon from 'material-ui/svg-icons/image/edit';
+import ContentAdd from 'material-ui/svg-icons/content/add';
 
 const styles = {
   floatbtn: {

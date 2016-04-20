@@ -4,7 +4,7 @@ import React from 'react';
 const UI = require('material-ui');
 const { IconButton, IconMenu, Divider, MenuItem, RaisedButton } = UI;
 
-import MoreVertIcon from 'material-ui/lib/svg-icons/navigation/more-vert';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 const styles = {
   userarea: {

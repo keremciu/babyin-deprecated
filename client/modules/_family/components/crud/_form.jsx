@@ -7,8 +7,7 @@ const { FormsyText } = FMUI;
 const UI = require('material-ui');
 const { FloatingActionButton, Toolbar, ToolbarGroup, ToolbarTitle } = UI;
 
-// material ui svg icons
-import DoneIcon from 'material-ui/lib/svg-icons/action/done';
+import DoneIcon from 'material-ui/svg-icons/action/done';
 
 export default React.createClass({
 
@@ -65,7 +64,7 @@ export default React.createClass({
               <FormsyText
                 name='name'
                 value={name}
-                hintText={<T label="school_name_hint" />}
+                hintText={<T label="family_name_hint" />}
                 floatingLabelText={<T label="form_name" />}
                 required
                 fullWidth

@@ -60,7 +60,7 @@ export default React.createClass({
             name='firstName'
             hintText={<T label="firstname_hint" />}
             floatingLabelText={<T label="firstname" />}
-            defaultValue={firstName}
+            value={firstName}
             required
             fullWidth/>
           <FormsyText

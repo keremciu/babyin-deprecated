@@ -1,17 +1,12 @@
 import React from 'react';
+import { Form } from 'formsy-react';
 
-import Formsy from 'formsy-react';
-import {
-  // Checkbox,
-  // CheckboxGroup,
-  Input,
-  // RadioGroup,
-  Row,
-  // Select,
-  // File,
-  // Textarea
+const FMUI = require('formsy-material-ui');
+const { FormsyText } = FMUI;
+import * as UI from 'material-ui';
+const { FloatingActionButton, Toolbar, ToolbarGroup, ToolbarTitle } = UI;
 
-} from 'formsy-react-components';
+import DoneIcon from 'material-ui/svg-icons/action/done';
 
 export default React.createClass({
 
@@ -50,74 +45,59 @@ export default React.createClass({
 
   render() {
 
-    let formClassName = 'vertical m-t';
-
-    var sharedProps = {
-      layout: this.state.layout,
-      validatePristine: this.state.validatePristine,
-      disabled: this.state.disabled
-    };
-
     const {error} = this.props;
 
     return (
-
-        <Formsy.Form className={formClassName}
+      <div>
+        <Toolbar>
+          <ToolbarGroup>
+            <ToolbarTitle text="Login Form" />
+          </ToolbarGroup>
+        </Toolbar>
+        <Formsy.Form
+          className="form"
           onValidSubmit={this.validSubmit}
           onInvalidSubmit={this.invalidSubmit}
           onValid={this.enableButton}
           onInvalid={this.disableButton}
           onChange={this.onChange}
           ref="form">
-
-          <fieldset>
             {error ?
             <div className="alert alert-danger" onClick="">
               <span className="octicon octicon-megaphone" ></span>
               {error}
             </div> : null }
 
-            <Input
-                {...sharedProps}
-                name="email"
-                value=""
-                label="Email"
-                type="email"
-                placeholder="This is an email input."
-
-                autoComplete="off"
-
-                validations="isEmail"
-                validationError="Please provide a valid email address."
-
-            />
-            <Input
-                {...sharedProps}
-                name="password"
-                value=""
-                label="Password"
-                type="password"
-                placeholder="Type in your password"
-
+            <FormsyText
+              name='email'
+              hintText={<T label="firstname_hint" />}
+              floatingLabelText={<T label="firstname" />}
+              required
+              fullWidth
+              validations="isEmail"
+              validationError="Please provide a valid email address."
+              />
+              <FormsyText
+                name='password'
+                hintText={<T label="firstname_hint" />}
+                floatingLabelText={<T label="firstname" />}
+                type='password'
+                required
+                fullWidth
                 validations="minLength:4"
                 validationError="That password looks a bit short, try again"
+                />
 
-            />
-
-          </fieldset>
-
-          <Row layout={this.state.layout}>
-
-            <input className="btn btn-primary block full-width m-b"
-              formNoValidate={true}
-              disabled={!this.state.canSubmit}
+            <FloatingActionButton
+              className="float--btn"
+              secondary={true}
               type="submit"
-              defaultValue="Login" />
-
-          </Row>
+              disabled={!this.state.canSubmit}>
+              <DoneIcon />
+            </FloatingActionButton>
 
         </Formsy.Form>
-
+      </div>
     );
   }
 });
